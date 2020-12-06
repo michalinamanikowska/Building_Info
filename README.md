@@ -1,4 +1,4 @@
-# Building_Info
+# Building Info
 
 ## Opis projektu:
 Projekt stworzony dla administratorów budynków, którzy pragną optymalizować koszty zarządzania budynkami. Nasza aplikacja Building Info umożliwia pozyskanie informacji o parametrach budynku na poziomie pomieszczeń, kondygnacji oraz całych budynków. Aplikacja jest dostępna poprzez GUI, a także jako zdalne API, dzięki czemu można ją zintegrować z istniejącymi narzędziami.
@@ -10,9 +10,9 @@ Projekt stworzony dla administratorów budynków, którzy pragną optymalizować
   - *id* – unikalny identyfikator
   - *name* – opcjonalna nazwa lokalizacji
 - **Pomieszczenie** dodatkowo jest charakteryzowane przez:
-  - *area* = powierzchnia w m^2
-  - *cube* = kubatura pomieszczenia w m^3
-  - *heating* = poziom zużycia energii ogrzewania (float)
+  - *area* - powierzchnia w m^2
+  - *cube* - kubatura pomieszczenia w m^3
+  - *heating* - poziom zużycia energii ogrzewania (float)
   - *light* – łączna moc oświetlenia
 
 ## Przydatne linki:
