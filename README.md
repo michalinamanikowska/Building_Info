@@ -19,4 +19,4 @@ Projekt stworzony dla administratorów budynków, którzy pragną optymalizować
 
 link do wymagań projektowych(*DoD*): [Zasady punktowania sprintów (DoD)](https://docs.google.com/spreadsheets/d/e/2PACX-1vQndYCJCWd-LgB0E3TjUa2sMFUaV2M-3plaVgLB61xtYDLnorXlL9trQWuSvEYVByVTUqGMZVzwPiEJ/pubhtml)
 
-link do tymczaoswego Product i Sprint Backlogu: https://docs.google.com/spreadsheets/d/1De3WZcZFA9AvrjkqRHxhseTIAHGi7kNGydApnNlUyTc/edit?usp=sharing
+link do tymczaoswego Product i Sprint Backlogu: [Google sheet](https://docs.google.com/spreadsheets/d/1De3WZcZFA9AvrjkqRHxhseTIAHGi7kNGydApnNlUyTc/edit?usp=sharing)
