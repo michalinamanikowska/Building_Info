@@ -1,5 +1,4 @@
 language: Java
-
 notifications: # leave as default: a build email is sent to the committer and the author
     on_success: never
     on_failure: always
