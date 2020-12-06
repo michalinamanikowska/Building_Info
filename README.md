@@ -1,4 +1,5 @@
 # Building Info
+![Build status](https://travis-ci.com/michalinamanikowska/Building_Info.svg?token=Urqs2aFNvxmcqWxQjCX3&branch=main)
 
 ## Opis projektu:
 Projekt stworzony dla administratorów budynków, którzy pragną optymalizować koszty zarządzania budynkami. Nasza aplikacja Building Info umożliwia pozyskanie informacji o parametrach budynku na poziomie pomieszczeń, kondygnacji oraz całych budynków. Aplikacja jest dostępna poprzez GUI, a także jako zdalne API, dzięki czemu można ją zintegrować z istniejącymi narzędziami.
@@ -14,7 +15,6 @@ Projekt stworzony dla administratorów budynków, którzy pragną optymalizować
   - *cube* - kubatura pomieszczenia w m^3
   - *heating* - poziom zużycia energii ogrzewania (float)
   - *light* – łączna moc oświetlenia
-
 
 ## Przydatne linki:
 
