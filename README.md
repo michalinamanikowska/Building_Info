@@ -15,6 +15,7 @@ Projekt stworzony dla administratorów budynków, którzy pragną optymalizować
   - *heating* - poziom zużycia energii ogrzewania (float)
   - *light* – łączna moc oświetlenia
 
+
 ## Przydatne linki:
 
 link do wymagań projektowych(*DoD*): [Zasady punktowania sprintów (DoD)](https://docs.google.com/spreadsheets/d/e/2PACX-1vQndYCJCWd-LgB0E3TjUa2sMFUaV2M-3plaVgLB61xtYDLnorXlL9trQWuSvEYVByVTUqGMZVzwPiEJ/pubhtml)
