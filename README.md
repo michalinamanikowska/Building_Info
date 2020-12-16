@@ -13,11 +13,11 @@ Projekt stworzony dla administratorów budynków, którzy pragną optymalizować
 - **Pomieszczenie** dodatkowo jest charakteryzowane przez:
   - *area* - powierzchnia w m^2
   - *cube* - kubatura pomieszczenia w m^3
-  - *heating* - poziom zużycia energii ogrzewania (float)
-  - *light* – łączna moc oświetlenia
+  - *heating* - poziom zużycia energii ogrzewania (float) [GJ]
+  - *light* – łączna moc oświetlenia [W]
 
 ## Przydatne linki:
 
 link do wymagań projektowych(*DoD*): [Zasady punktowania sprintów (DoD)](https://docs.google.com/spreadsheets/d/e/2PACX-1vQndYCJCWd-LgB0E3TjUa2sMFUaV2M-3plaVgLB61xtYDLnorXlL9trQWuSvEYVByVTUqGMZVzwPiEJ/pubhtml)
 
-link do tymczaoswego Product i Sprint Backlogu: [Google sheet](https://docs.google.com/spreadsheets/d/1De3WZcZFA9AvrjkqRHxhseTIAHGi7kNGydApnNlUyTc/edit?usp=sharing)
+link do tymczasowego Product i Sprint Backlogu: [Google sheet](https://docs.google.com/spreadsheets/d/1De3WZcZFA9AvrjkqRHxhseTIAHGi7kNGydApnNlUyTc/edit?usp=sharing)
