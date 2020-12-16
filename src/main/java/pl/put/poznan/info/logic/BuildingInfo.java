@@ -1,8 +1,7 @@
 package pl.put.poznan.info.logic;
 
-/**
- * This is just an example to show that the logic should be outside the REST service.
- */
+import com.google.gson.Gson;
+
 public class BuildingInfo {
 
     private final String[] info;
