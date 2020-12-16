@@ -1,0 +1,44 @@
+{
+  "building": {
+    "id": "b1",
+    "name": "university",
+    "levels": [
+      {
+        "id": "b1_l1",
+        "name": "level 1",
+        "rooms": [
+          {
+            "id": "b1_l1_r1",
+            "name": "lecture hall 1",
+            "area": "244",
+            "cube": "1220",
+            "heating": "31.72",
+            "light": "2500"
+          },
+          {
+            "id": "b1_l1_r2",
+            "name": "toilet",
+            "area": "16",
+            "cube": "48",
+            "heating": "2.08",
+            "light": "280"
+          }
+        ]
+      },
+      {
+        "id": "l2",
+        "name": "lecture hall",
+        "rooms": [
+          {
+            "id": "b1_l2_r1",
+            "name": "lecture hall 2",
+            "area": "120",
+            "cube": "600",
+            "heating": "15.6",
+            "light": "1500"
+          }
+        ]
+      }
+    ]
+  }
+}
