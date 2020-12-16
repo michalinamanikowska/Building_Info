@@ -4,10 +4,14 @@ import com.google.gson.Gson;
 
 public class BuildingInfo {
 
-    private final String[] info;
+    private Building building;
 
-    public BuildingInfo(String[] info){
-        this.info = info;
+    public BuildingInfo(String info) {
+        readJSON(info);
+    }
+
+    public void readJSON(String info) {
+        this.building = new Gson().fromJson(info, Building.class);
     }
 
     public String inform(String text){
