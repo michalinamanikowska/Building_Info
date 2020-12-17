@@ -2,11 +2,11 @@ package pl.put.poznan.info.logic;
 
 import com.google.gson.Gson;
 
-public class BuildingInfo {
+public class BuildingInfoArea {
 
     private Building building;
 
-    public BuildingInfo(String info) {
+    public BuildingInfoArea(String info) {
         readJSON(info);
     }
 

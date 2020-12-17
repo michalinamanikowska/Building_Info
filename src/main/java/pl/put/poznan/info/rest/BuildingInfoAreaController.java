@@ -2,20 +2,20 @@ package pl.put.poznan.info.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.info.logic.BuildingInfo;
+import pl.put.poznan.info.logic.BuildingInfoArea;
 
 
 @RestController
-public class BuildingInfoController {
+public class BuildingInfoAreaController {
 
-    private static final Logger logger = LoggerFactory.getLogger(BuildingInfoController.class);
+    private static final Logger logger = LoggerFactory.getLogger(BuildingInfoAreaController.class);
 
     @RequestMapping(value = "area/building", method = RequestMethod.POST, produces = "application/json")
     public String buildingArea(@RequestBody String info) {
 
         logger.debug(info);
 
-        BuildingInfo informer = new BuildingInfo(info);
+        BuildingInfoArea informer = new BuildingInfoArea(info);
         return informer.calculateBuildingArea();
     }
 
@@ -24,7 +24,7 @@ public class BuildingInfoController {
 
         logger.debug(info);
 
-        BuildingInfo informer = new BuildingInfo(info);
+        BuildingInfoArea informer = new BuildingInfoArea(info);
         return informer.calculateLevelArea(id);
     }
 
@@ -33,7 +33,7 @@ public class BuildingInfoController {
 
         logger.debug(info);
 
-        BuildingInfo informer = new BuildingInfo(info);
+        BuildingInfoArea informer = new BuildingInfoArea(info);
         return informer.calculateRoomArea(id);
     }
 }
