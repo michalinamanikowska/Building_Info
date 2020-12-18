@@ -16,7 +16,7 @@ public class BuildingInfoAreaController {
         logger.debug(info);
 
         BuildingInfoArea informer = new BuildingInfoArea(info);
-        return informer.calculateBuildingArea();
+        return informer.calculateBuilding();
     }
 
     @RequestMapping(value = "area/level/{id}", method = RequestMethod.POST, produces = "application/json")
@@ -25,7 +25,7 @@ public class BuildingInfoAreaController {
         logger.debug(info);
 
         BuildingInfoArea informer = new BuildingInfoArea(info);
-        return informer.calculateLevelArea(id);
+        return informer.calculateLevel(id);
     }
 
     @RequestMapping(value = "area/room/{id}", method = RequestMethod.POST, produces = "application/json")
@@ -34,7 +34,7 @@ public class BuildingInfoAreaController {
         logger.debug(info);
 
         BuildingInfoArea informer = new BuildingInfoArea(info);
-        return informer.calculateRoomArea(id);
+        return informer.calculateRoom(id);
     }
 }
 

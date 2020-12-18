@@ -16,7 +16,7 @@ public class BuildingInfoLightController {
         logger.debug(info);
 
         BuildingInfoLight informer = new BuildingInfoLight(info);
-        return informer.calculateBuildingLight();
+        return informer.calculateBuilding();
     }
 
     @RequestMapping(value = "light/level/{id}", method = RequestMethod.POST, produces = "application/json")
@@ -25,7 +25,7 @@ public class BuildingInfoLightController {
         logger.debug(info);
 
         BuildingInfoLight informer = new BuildingInfoLight(info);
-        return informer.calculateLevelLight(id);
+        return informer.calculateLevel(id);
     }
 
     @RequestMapping(value = "light/room/{id}", method = RequestMethod.POST, produces = "application/json")
@@ -34,6 +34,6 @@ public class BuildingInfoLightController {
         logger.debug(info);
 
         BuildingInfoLight informer = new BuildingInfoLight(info);
-        return informer.calculateRoomLight(id);
+        return informer.calculateRoom(id);
     }
 }

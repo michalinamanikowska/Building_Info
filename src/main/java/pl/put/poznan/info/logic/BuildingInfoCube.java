@@ -2,7 +2,7 @@ package pl.put.poznan.info.logic;
 
 import com.google.gson.Gson;
 
-public class BuildingInfoCube {
+public class BuildingInfoCube implements BuildingInfo {
 
     private Building building;
 
@@ -14,7 +14,7 @@ public class BuildingInfoCube {
         this.building = new Gson().fromJson(info, Building.class);
     }
 
-    public String calculateBuildingCube(){
+    public String calculateBuilding(){
         int cube = 0;
         for (Level l : building.getLevels()) {
             for (Room r: l.getRooms()) {
@@ -24,7 +24,7 @@ public class BuildingInfoCube {
         return String.valueOf(cube);
     }
 
-    public String calculateLevelCube(String id) {
+    public String calculateLevel(String id) {
         int cube = 0;
         for (Level l : building.getLevels()) {
             if (l.getId().equals(id)){
@@ -37,7 +37,7 @@ public class BuildingInfoCube {
         return "No level with the given id.";
     }
 
-    public String calculateRoomCube(String id) {
+    public String calculateRoom(String id) {
         for (Level l : building.getLevels()) {
             for (Room r: l.getRooms()) {
                 if (r.getId().equals(id)) {

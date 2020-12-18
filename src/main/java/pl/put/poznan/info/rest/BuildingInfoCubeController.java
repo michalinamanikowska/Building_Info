@@ -16,7 +16,7 @@ public class BuildingInfoCubeController {
         logger.debug(info);
 
         BuildingInfoCube informer = new BuildingInfoCube(info);
-        return informer.calculateBuildingCube();
+        return informer.calculateBuilding();
     }
 
     @RequestMapping(value = "cube/level/{id}", method = RequestMethod.POST, produces = "application/json")
@@ -25,7 +25,7 @@ public class BuildingInfoCubeController {
         logger.debug(info);
 
         BuildingInfoCube informer = new BuildingInfoCube(info);
-        return informer.calculateLevelCube(id);
+        return informer.calculateLevel(id);
     }
 
     @RequestMapping(value = "cube/room/{id}", method = RequestMethod.POST, produces = "application/json")
@@ -34,7 +34,7 @@ public class BuildingInfoCubeController {
         logger.debug(info);
 
         BuildingInfoCube informer = new BuildingInfoCube(info);
-        return informer.calculateRoomCube(id);
+        return informer.calculateRoom(id);
     }
 }
 
