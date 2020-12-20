@@ -22,13 +22,7 @@ public class BuildingInfoArea implements BuildingInfo {
      * @return area
      */
     public String calculateBuilding(){
-        int area = 0;
-        for (Level l : building.getLevels()) {
-            for (Room r: l.getRooms()) {
-                area += r.getArea();
-            }
-        }
-        return String.valueOf(area);
+        return String.valueOf(building.countArea());
     }
 
     /**
@@ -37,13 +31,9 @@ public class BuildingInfoArea implements BuildingInfo {
      * @return area or message "No level with the given id."
      */
     public String calculateLevel(String id) {
-        int area = 0;
         for (Level l : building.getLevels()) {
             if (l.getId().equals(id)){
-                for (Room r: l.getRooms()) {
-                    area += r.getArea();
-                }
-                return String.valueOf(area);
+                return String.valueOf(l.countArea());
             }
         }
         return "No level with the given id.";

@@ -24,13 +24,7 @@ public class BuildingInfoLight implements BuildingInfo {
      * @return power of the light
      */
     public String calculateBuilding(){
-        int cube = 0;
-        for (Level l : building.getLevels()) {
-            for (Room r: l.getRooms()) {
-                cube += r.getLight();
-            }
-        }
-        return String.valueOf(cube);
+        return String.valueOf(building.countLight());
     }
 
     /**
@@ -39,13 +33,9 @@ public class BuildingInfoLight implements BuildingInfo {
      * @return power of the light or message "No level with the given id."
      */
     public String calculateLevel(String id) {
-        int cube = 0;
         for (Level l : building.getLevels()) {
             if (l.getId().equals(id)){
-                for (Room r: l.getRooms()) {
-                    cube += r.getLight();
-                }
-                return String.valueOf(cube);
+                return String.valueOf(l.countLight());
             }
         }
         return "No level with the given id.";

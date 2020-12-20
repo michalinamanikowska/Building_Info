@@ -2,21 +2,16 @@ package pl.put.poznan.info.logic;
 /**
  * This is the Room class, declare the parameters of room
  */
-public class Room {
-    private String id;
-    private String name;
+public class Room extends Location{ // Leaf class
     private int area;
     private int cube;
     private float heating;
     private int light;
-    /**
-     * @return id of the room
-     */
-    public String getId() { return id; }
-    /**
-     * @return name of the room
-     */
-    public String getName() { return name; }
+
+    Room(String id, String name) {
+        super(id, name);
+    }
+
     /**
      * @return area of the room
      */
@@ -34,8 +29,26 @@ public class Room {
      */
     public int getLight() { return light; }
 
-    public void setId(String id) { this.id = id; }
-    public void setName(String name) { this.name = name; }
+    @Override
+    public int countArea() {
+        return 0; // this is leaf node so this method is not applicable to this class
+    }
+
+    @Override
+    public int countCube() {
+        return 0; // this is leaf node so this method is not applicable to this class
+    }
+
+    @Override
+    public float countHeating() {
+        return 0; // this is leaf node so this method is not applicable to this class
+    }
+
+    @Override
+    public int countLight() {
+        return 0; // this is leaf node so this method is not applicable to this class
+    }
+
     public void setArea(int area) { this.area = area; }
     public void setCube(int cube) { this.cube = cube; }
     public void setHeating(float heating) { this.heating = heating; }
