@@ -31,22 +31,23 @@ public class Room extends Location{ // Leaf class
 
     @Override
     public int countArea() {
-        return 0; // this is leaf node so this method is not applicable to this class
+        return this.area;
     }
 
     @Override
     public int countCube() {
-        return 0; // this is leaf node so this method is not applicable to this class
+        return this.cube;
+
     }
 
     @Override
     public float countHeating() {
-        return 0; // this is leaf node so this method is not applicable to this class
+        return 0; // TODO
     }
 
     @Override
     public int countLight() {
-        return 0; // this is leaf node so this method is not applicable to this class
+        return this.light;
     }
 
     public void setArea(int area) { this.area = area; }

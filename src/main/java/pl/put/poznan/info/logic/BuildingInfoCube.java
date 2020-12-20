@@ -35,7 +35,7 @@ public class BuildingInfoCube implements BuildingInfo {
      * @return cube or message "No level with the given id."
      */
     public String calculateLevel(String id) {
-        for (Level l : building.getLevels()) {
+        for (Level l : building.getLocations()) {
             if (l.getId().equals(id)){
                 return String.valueOf(l.countCube());
             }
@@ -49,8 +49,8 @@ public class BuildingInfoCube implements BuildingInfo {
      * @return cube or message "No level with the given id."
      */
     public String calculateRoom(String id) {
-        for (Level l : building.getLevels()) {
-            for (Room r: l.getRooms()) {
+        for (Level l : building.getLocations()) {
+            for (Room r: l.getLocations()) {
                 if (r.getId().equals(id)) {
                     return String.valueOf(r.getCube());
                 }
