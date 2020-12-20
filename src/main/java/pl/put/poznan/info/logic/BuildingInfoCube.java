@@ -2,6 +2,9 @@ package pl.put.poznan.info.logic;
 
 import com.google.gson.Gson;
 
+/**
+ * This is the BuildingInfoCube class, which returns info about cube in the builing.
+ */
 public class BuildingInfoCube implements BuildingInfo {
 
     private Building building;
@@ -10,10 +13,17 @@ public class BuildingInfoCube implements BuildingInfo {
         readJSON(info);
     }
 
+    /**
+     * Read the file with info about the builing.
+     */
     public void readJSON(String info) {
         this.building = new Gson().fromJson(info, Building.class);
     }
 
+    /**
+     * Counts cube of the building.
+     * @return cube
+     */
     public String calculateBuilding(){
         int cube = 0;
         for (Level l : building.getLevels()) {
@@ -24,6 +34,11 @@ public class BuildingInfoCube implements BuildingInfo {
         return String.valueOf(cube);
     }
 
+    /**
+     * Counts cube of the level.
+     * @param id level id
+     * @return cube or message "No level with the given id."
+     */
     public String calculateLevel(String id) {
         int cube = 0;
         for (Level l : building.getLevels()) {
@@ -37,6 +52,11 @@ public class BuildingInfoCube implements BuildingInfo {
         return "No level with the given id.";
     }
 
+    /**
+     * Counts cube of the level.
+     * @param id level id
+     * @return cube or message "No level with the given id."
+     */
     public String calculateRoom(String id) {
         for (Level l : building.getLevels()) {
             for (Room r: l.getRooms()) {
