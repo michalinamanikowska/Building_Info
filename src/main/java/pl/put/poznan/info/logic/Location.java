@@ -34,4 +34,5 @@ public abstract class Location { // Base Component class
     public abstract int countTotalLight();
     public abstract int countLightById(String id);
 
+    public abstract int accept(LocationVisitor visitor);
 }

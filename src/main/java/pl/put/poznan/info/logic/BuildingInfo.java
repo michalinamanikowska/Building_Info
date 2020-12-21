@@ -27,6 +27,8 @@ public class BuildingInfo {
         building1.addLocation(level2);
 
         this.building = building1;
+
+        building1.accept(new LocationVisit());
     }
 
     /**

@@ -1,8 +1,13 @@
 package pl.put.poznan.info.logic;
+
+interface RoomInterface {
+    int accept(LocationVisitor visitor);
+}
+
 /**
  * This is the Room class, declare the parameters of room
  */
-public class Room extends Location{ // Leaf class
+public class Room extends Location implements RoomInterface{ // Leaf class
     private int area;
     private int cube;
     private float heating;
@@ -37,6 +42,12 @@ public class Room extends Location{ // Leaf class
     public void setCube(int cube) { this.cube = cube; }
     public void setHeating(float heating) { this.heating = heating; }
     public void setLight(int light) { this.light = light; }
+
+    @Override
+    public int accept(LocationVisitor visitor) {
+        visitor.visit(this);
+        return 0;
+    }
 
     @Override
     public int countTotalArea() {

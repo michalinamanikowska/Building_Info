@@ -1,12 +1,19 @@
 package pl.put.poznan.info.logic;
 
-interface LevelVisitor {
-    void visit(MidLocation midLocation);
+interface LocationVisitor {
+    int visit(Location location);
 }
 
-public class MidLocationVisit implements LevelVisitor {
+public class LocationVisit implements LocationVisitor {
     @Override
-    public void visit(MidLocation midLocation) {
-        System.out.println("Moving my body 2 " + midLocation.getName());
+    public int visit (Location location) {
+        System.out.println("Location " + location.getName());
+        if (location instanceof Room) {
+            System.out.println("Room area " + ((Room) location).getArea());
+            System.out.println("return " + ((Room) location).getArea());
+            return ((Room) location).getArea();
+        }
+        System.out.println("return 0");
+        return 0;
     }
 }

@@ -3,12 +3,30 @@ package pl.put.poznan.info.logic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MidLocation extends Location{ // Composite class
+interface MidLocationInterface {
+    int accept(LocationVisitor visitor);
+}
+
+public class MidLocation extends Location implements MidLocationInterface{ // Composite class
     private List<Location> locations;
 
     MidLocation(String id, String name) {
         super(id, name);
         this.locations = new ArrayList<>();
+    }
+
+    @Override
+    public int accept(LocationVisitor visitor) {
+//        LocationVisitor locationVisitor = new LocationVisit();
+        int s = 0;
+        for (Location l : locations) {
+            if (l != null)
+                s += l.accept(visitor);
+            System.out.println("Receive (s) " + s);
+        }
+        visitor.visit(this);
+        System.out.println("Area " + s);
+        return s;
     }
 
     @Override
