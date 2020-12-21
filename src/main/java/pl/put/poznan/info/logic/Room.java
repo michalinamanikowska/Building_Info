@@ -8,8 +8,12 @@ public class Room extends Location{ // Leaf class
     private float heating;
     private int light;
 
-    Room(String id, String name) {
+    Room(String id, String name, int area, int cube, float heating, int light) {
         super(id, name);
+        this.area = area;
+        this.cube = cube;
+        this.heating = heating;
+        this.light = light;
     }
 
     /**
@@ -29,29 +33,57 @@ public class Room extends Location{ // Leaf class
      */
     public int getLight() { return light; }
 
-    @Override
-    public int countArea() {
-        return this.area;
-    }
-
-    @Override
-    public int countCube() {
-        return this.cube;
-
-    }
-
-    @Override
-    public float countHeating() {
-        return 0; // TODO
-    }
-
-    @Override
-    public int countLight() {
-        return this.light;
-    }
-
     public void setArea(int area) { this.area = area; }
     public void setCube(int cube) { this.cube = cube; }
     public void setHeating(float heating) { this.heating = heating; }
     public void setLight(int light) { this.light = light; }
+
+    @Override
+    public int countTotalArea() {
+        return area;
+    }
+
+    @Override
+    public int countAreaById(String id) {
+        if (this.getId().equals(id)){
+            return area;
+        }
+        return 0;
+    }
+
+    @Override
+    public int countTotalCube() {
+        return cube;
+    }
+
+    @Override
+    public int countCubeById(String id) {
+        if (this.getId().equals(id)){
+            return cube;
+        }
+        return 0;
+    }
+
+    @Override
+    public float countTotalHeating() {
+        return 0; // TODO
+    }
+
+    @Override
+    public int countHeatingById(String id) {
+        return 0; // TODO
+    }
+
+    @Override
+    public int countTotalLight() {
+        return light;
+    }
+
+    @Override
+    public int countLightById(String id) {
+        if (this.getId().equals(id)){
+            return light;
+        }
+        return 0;
+    }
 }
