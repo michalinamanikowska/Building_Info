@@ -1,91 +1,120 @@
 package pl.put.poznan.info.logic;
 
-import com.google.gson.Gson;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
- * This is the BuildingInfoArea class, which returns info about area in the builing.
+ * This is the BuildingInfo class, which returns info about area, cube, heating and light in the building.
  */
 public class BuildingInfo {
-
     private MidLocation building;
 
-    public BuildingInfo() {
-        Room room1 = new Room("l1-r1","lecture hall 1", 244, 1220, (float) 31.72, 2500);
-        Room room2 = new Room("l1-r2","toilet", 16, 48, (float) 2.08, 280);
+    /**
+     * This is the BuildingInfo constructor, which reads the json String with building data and creates the instance of the MidLocation class.
+     *
+     * @param buildingData data with json building structure
+     */
+    public BuildingInfo(String buildingData) throws JSONException {
+        JSONObject jsonBuilding = new JSONObject(buildingData);
+        MidLocation building = new MidLocation(jsonBuilding.getString("id"), jsonBuilding.getString("name"));
 
-        MidLocation level1 = new MidLocation("l1", "level 1");
-        level1.addLocation(room1);
-        level1.addLocation(room2);
+        JSONArray jsonLevels = jsonBuilding.getJSONArray("levels");
+        int numberOfLevels = jsonLevels.length();
 
-        Room room3 = new Room("l2-r1","lecture hall 2", 120, 600, (float) 15.6, 1500);
+        for (int i = 0; i < numberOfLevels; ++i) {
+            JSONObject jsonLevel = jsonLevels.getJSONObject(i);
+            MidLocation level = new MidLocation(jsonLevel.getString("id"), jsonLevel.getString("name"));
 
-        MidLocation level2 = new MidLocation("l2", "level 2");
-        level2.addLocation(room3);
+            JSONArray jsonRooms = jsonLevel.getJSONArray("rooms");
+            int numberOfRooms = jsonRooms.length();
+            System.out.println(numberOfRooms);
 
-        MidLocation building1 = new MidLocation("b1", "university");
-        building1.addLocation(level1);
-        building1.addLocation(level2);
+            for (int j = 0; j < numberOfRooms; ++j) {
+                JSONObject jsonRoom = jsonRooms.getJSONObject(j);
+                Room room = new Room(jsonRoom.getString("id"), jsonRoom.getString("name"), jsonRoom.getInt("area"), jsonRoom.getInt("cube"), (float) jsonRoom.getDouble("heating"), jsonRoom.getInt("light"));
+                System.out.println(room.getId());
+                level.addLocation(room);
+            }
+            building.addLocation(level);
+        }
 
-        this.building = building1;
+        this.building = building;
     }
 
     /**
      * Counts total area of the building.
-     * @return area
+     *
+     * @return area of the building
      */
-    public String calculateTotalArea(){
+    public String calculateTotalArea() {
         return String.valueOf(building.countTotalArea());
     }
+
     /**
      * Counts area of the location specified by id.
-     * @return area
+     *
+     * @param id the id of the required location
+     * @return area of the location specified by id
      */
-    public String calculateAreaById(String id){
+    public String calculateAreaById(String id) {
         return String.valueOf(building.countAreaById(id));
     }
 
     /**
      * Counts total cube of the building.
-     * @return cube
+     *
+     * @return cube of the building
      */
-    public String calculateTotalCube(){
+    public String calculateTotalCube() {
         return String.valueOf(building.countTotalCube());
     }
+
     /**
      * Counts cube of the location specified by id.
-     * @return cube
+     *
+     * @param id the id of the required location
+     * @return cube of the location specified by id
      */
-    public String calculateCubeById(String id){
+    public String calculateCubeById(String id) {
         return String.valueOf(building.countCubeById(id));
     }
 
     /**
      * Counts total heating of the building.
-     * @return heating
+     *
+     * @return heating of the building
      */
-    public String calculateTotalHeating(){
+    public String calculateTotalHeating() {
         return String.valueOf(building.countTotalHeating());
     }
+
     /**
      * Counts heating of the location specified by id.
-     * @return heating
+     *
+     * @param id the id of the required location
+     * @return heating of the location specified by id
      */
-    public String calculateHeatingById(String id){
+    public String calculateHeatingById(String id) {
         return String.valueOf(building.countHeatingById(id));
     }
 
     /**
      * Counts total light of the building.
-     * @return light
+     *
+     * @return light of the building
      */
-    public String calculateTotalLight(){
+    public String calculateTotalLight() {
         return String.valueOf(building.countTotalLight());
     }
+
     /**
      * Counts light of the location specified by id.
-     * @return light
+     *
+     * @param id the id of the required location
+     * @return light of the location specified by id
      */
-    public String calculateLightById(String id){
+    public String calculateLightById(String id) {
         return String.valueOf(building.countLightById(id));
     }
 }
