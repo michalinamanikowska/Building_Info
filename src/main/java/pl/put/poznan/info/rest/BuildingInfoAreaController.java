@@ -28,7 +28,7 @@ public class BuildingInfoAreaController {
         logger.debug(buildingData);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
-        String area = informer.calculateTotalArea();
+        String area = informer.calculateAreaById(id);
         logger.debug("Area:" + area);
         return area;
     }
@@ -39,7 +39,7 @@ public class BuildingInfoAreaController {
         logger.debug(buildingData);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
-        String area = informer.calculateTotalArea();
+        String area = informer.calculateAreaById(id);
         logger.debug("Area:" + area);
         return area;
     }

@@ -17,7 +17,7 @@ public class BuildingInfoCubeController {
         logger.debug(buildingData);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
-        String cube = informer.calculateTotalArea();
+        String cube = informer.calculateTotalCube();
         logger.debug("Cube:" + cube);
         return cube;
     }
@@ -28,7 +28,7 @@ public class BuildingInfoCubeController {
         logger.debug(buildingData);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
-        String cube = informer.calculateTotalArea();
+        String cube = informer.calculateCubeById(id);
         logger.debug("Cube:" + cube);
         return cube;
     }
@@ -39,7 +39,7 @@ public class BuildingInfoCubeController {
         logger.debug(buildingData);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
-        String cube = informer.calculateTotalArea();
+        String cube = informer.calculateCubeById(id);
         logger.debug("Cube:" + cube);
         return cube;
     }

@@ -17,7 +17,7 @@ public class BuildingInfoLightController {
         logger.debug(buildingData);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
-        String light = informer.calculateTotalArea();
+        String light = informer.calculateTotalLight();
         logger.debug("Light:" + light);
         return light;
     }
@@ -28,7 +28,7 @@ public class BuildingInfoLightController {
         logger.debug(buildingData);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
-        String light = informer.calculateTotalArea();
+        String light = informer.calculateLightById(id);
         logger.debug("Light:" + light);
         return light;
     }
@@ -39,7 +39,7 @@ public class BuildingInfoLightController {
         logger.debug(buildingData);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
-        String light = informer.calculateTotalArea();
+        String light = informer.calculateLightById(id);
         logger.debug("Light:" + light);
         return light;
     }
