@@ -28,12 +28,10 @@ public class BuildingInfo {
 
             JSONArray jsonRooms = jsonLevel.getJSONArray("rooms");
             int numberOfRooms = jsonRooms.length();
-            System.out.println(numberOfRooms);
 
             for (int j = 0; j < numberOfRooms; ++j) {
                 JSONObject jsonRoom = jsonRooms.getJSONObject(j);
                 Room room = new Room(jsonRoom.getString("id"), jsonRoom.getString("name"), jsonRoom.getInt("area"), jsonRoom.getInt("cube"), (float) jsonRoom.getDouble("heating"), jsonRoom.getInt("light"));
-                System.out.println(room.getId());
                 level.addLocation(room);
             }
             building.addLocation(level);
