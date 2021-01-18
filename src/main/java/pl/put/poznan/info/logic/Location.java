@@ -69,7 +69,12 @@ public abstract class Location {
      */
     public abstract int countAreaById(String id);
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with area smaller or equal to specified limit level.
+     *
+     * @param level the specified area limit level
+     * @return ids of locations within limited area level
+     */
     public abstract String findRoomsWithLimitedAreaLevel(String level);
 
     /**
@@ -87,7 +92,12 @@ public abstract class Location {
      */
     public abstract int countCubeById(String id);
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with cube smaller or equal to specified limit level.
+     *
+     * @param level the specified cube limit level
+     * @return ids of locations within limited cube level
+     */
     public abstract String findRoomsWithLimitedCubeLevel(String level);
 
     /**
@@ -105,10 +115,20 @@ public abstract class Location {
      */
     public abstract float countHeatingById(String id);
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with heating exceeding specified level.
+     *
+     * @param level the specified heating level
+     * @return ids of locations exceeding specified heating level
+     */
     public abstract String findRoomsWithExceededHeatingLevel(String level);
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with heating smaller or equal to specified limit level.
+     *
+     * @param level the specified heating limit level
+     * @return ids of locations within limited heating level
+     */
     public abstract String findRoomsWithLimitedHeatingLevel(String level);
 
     /**
@@ -126,6 +146,11 @@ public abstract class Location {
      */
     public abstract int countLightById(String id);
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with light smaller or equal to specified limit level.
+     *
+     * @param level the specified light limit level
+     * @return ids of locations within limited light level
+     */
     public abstract String findRoomsWithLimitedLightLevel(String level);
 }
