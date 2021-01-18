@@ -84,7 +84,7 @@ public class BuildingInfo {
      * @return heating of the building
      */
     public String calculateTotalHeating() {
-        return String.valueOf(building.countTotalHeating());
+        return String.valueOf(building.countTotalHeating()/building.countTotalCube());
     }
 
     /**
@@ -94,7 +94,7 @@ public class BuildingInfo {
      * @return heating of the location specified by id
      */
     public String calculateHeatingById(String id) {
-        return String.valueOf(building.countHeatingById(id));
+        return String.valueOf(building.countHeatingById(id)/building.countCubeById(id));
     }
 
     /**

@@ -127,12 +127,15 @@ public class Room extends Location {
 
     @Override
     public float countTotalHeating() {
-        return 0; // TODO
+        return heating*cube;
     }
 
     @Override
-    public int countHeatingById(String id) {
-        return 0; // TODO
+    public float countHeatingById(String id) {
+        if (this.getId().equals(id)) {
+            return (heating*cube);
+        }
+        return 0;
     }
 
     @Override

@@ -97,7 +97,7 @@ public abstract class Location {
      * @param id the identifier of the location
      * @return heating of the location
      */
-    public abstract int countHeatingById(String id);
+    public abstract float countHeatingById(String id);
 
     /**
      * Counts total light of the location.

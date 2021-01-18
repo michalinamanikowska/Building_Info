@@ -66,12 +66,25 @@ public class MidLocation extends Location {
 
     @Override
     public float countTotalHeating() {
-        return 0; // TODO
+        float heating = 0;
+        for (Location l : locations) {
+            heating += l.countTotalHeating();
+        }
+        return heating;
     }
 
     @Override
-    public int countHeatingById(String id) {
-        return 0; // TODO
+    public float countHeatingById(String id) {
+        float heating = 0;
+        for (Location l : locations) {
+            if (l.getId().equals(id)) {
+                return l.countTotalHeating();
+            } else {
+                heating += l.countHeatingById(id);
+            }
+        }
+        return heating;
+
     }
 
     @Override
