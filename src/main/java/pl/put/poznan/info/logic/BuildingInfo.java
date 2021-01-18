@@ -97,6 +97,11 @@ public class BuildingInfo {
         return String.valueOf(building.countHeatingById(id)/building.countCubeById(id));
     }
 
+    // TODO dokumentacja
+    public String findRoomsWithExceededHeatingLevel(String level) {
+        return building.findRoomsWithExceededHeatingLevel(level);
+    }
+
     /**
      * Counts total light of the building.
      *

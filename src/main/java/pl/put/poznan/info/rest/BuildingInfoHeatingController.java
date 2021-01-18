@@ -43,6 +43,18 @@ public class BuildingInfoHeatingController {
         logger.debug("Heating:" + heating);
         return heating;
     }
+
+    @RequestMapping(value = "heating/exceed/{level}", method = RequestMethod.POST, produces = "application/json")
+    public String exceededHeating(@RequestBody String buildingData, @PathVariable String level) throws JSONException {
+
+        logger.debug(buildingData);
+
+        BuildingInfo informer = new BuildingInfo(buildingData);
+        String heating = informer.findRoomsWithExceededHeatingLevel(level);
+        logger.debug("Rooms with exceeded heating level:" + heating);
+        // TODO functions return json not string
+        return heating;
+    }
 }
 
 

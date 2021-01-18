@@ -1,5 +1,7 @@
 package pl.put.poznan.info.logic;
 
+import java.lang.Float;
+
 /**
  * This is the Room class, which acts as the Leaf class of the Composite pattern.
  */
@@ -136,6 +138,15 @@ public class Room extends Location {
             return (heating*cube);
         }
         return 0;
+    }
+
+    @Override
+    public String findRoomsWithExceededHeatingLevel(String level){
+        float fLevel = Float.parseFloat(level);
+        if (Float.compare(this.getHeating(), fLevel) > 0) {
+            return this.getId();
+        }
+        return "";
     }
 
     @Override

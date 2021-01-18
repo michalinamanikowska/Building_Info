@@ -84,7 +84,16 @@ public class MidLocation extends Location {
             }
         }
         return heating;
+    }
 
+    @Override
+    public String findRoomsWithExceededHeatingLevel(String level){
+        ArrayList<String> rooms = new ArrayList<>();
+        for (Location l : locations) {
+            String found = l.findRoomsWithExceededHeatingLevel(level);
+            if (!found.isEmpty()) { rooms.add(found); }
+        }
+        return String.join(",", rooms);
     }
 
     @Override
