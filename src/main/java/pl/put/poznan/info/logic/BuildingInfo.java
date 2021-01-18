@@ -135,4 +135,9 @@ public class BuildingInfo {
     public String calculateLightById(String id) {
         return String.valueOf(building.countLightById(id));
     }
+
+    // TODO dokumentacja
+    public String findRoomsWithLimitedLightLevel(String level) {
+        return building.findRoomsWithLimitedLightLevel(level);
+    }
 }

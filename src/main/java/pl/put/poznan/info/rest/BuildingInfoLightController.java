@@ -45,4 +45,16 @@ public class BuildingInfoLightController {
         logger.debug("Light: " + light);
         return light;
     }
+
+    @RequestMapping(value = "light/limit/{level}", method = RequestMethod.POST, produces = "application/json")
+    public String limitedLight(@RequestBody String buildingData, @PathVariable String level) throws JSONException {
+
+        logger.debug(buildingData);
+        logger.debug("Limit level: " + level);
+
+        BuildingInfo informer = new BuildingInfo(buildingData);
+        String rooms = informer.findRoomsWithLimitedLightLevel(level);
+        logger.debug("Rooms with limited light level: " + rooms);
+        return rooms;
+    }
 }

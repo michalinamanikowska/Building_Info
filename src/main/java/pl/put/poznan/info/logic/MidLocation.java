@@ -148,6 +148,16 @@ public class MidLocation extends Location {
         return light;
     }
 
+    @Override
+    public String findRoomsWithLimitedLightLevel(String level){
+        ArrayList<String> rooms = new ArrayList<>();
+        for (Location l : locations) {
+            String found = l.findRoomsWithLimitedLightLevel(level);
+            if (!found.isEmpty()) { rooms.add(found); }
+        }
+        return String.join(",", rooms);
+    }
+
     /**
      * Gets the list of locations inside the location
      *

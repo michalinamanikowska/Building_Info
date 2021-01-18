@@ -125,4 +125,7 @@ public abstract class Location {
      * @return light of the location
      */
     public abstract int countLightById(String id);
+
+    // TODO dokumentacja
+    public abstract String findRoomsWithLimitedLightLevel(String level);
 }

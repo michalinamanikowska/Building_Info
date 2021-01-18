@@ -188,4 +188,13 @@ public class Room extends Location {
         }
         return 0;
     }
+
+    @Override
+    public String findRoomsWithLimitedLightLevel(String level){
+        float fLevel = Float.parseFloat(level);
+        if (Float.compare(this.getLight(), fLevel) <= 0) {
+            return this.getId();
+        }
+        return "";
+    }
 }
