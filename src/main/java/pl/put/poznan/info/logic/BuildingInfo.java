@@ -59,7 +59,12 @@ public class BuildingInfo {
         return String.valueOf(building.countAreaById(id));
     }
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with area smaller or equal to specified limit level.
+     *
+     * @param level the specified area limit level
+     * @return ids of locations within limited area level
+     */
     public String findRoomsWithLimitedAreaLevel(String level) {
         return building.findRoomsWithLimitedAreaLevel(level);
     }
@@ -83,7 +88,12 @@ public class BuildingInfo {
         return String.valueOf(building.countCubeById(id));
     }
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with cube smaller or equal to specified limit level.
+     *
+     * @param level the specified cube limit level
+     * @return ids of locations within limited cube level
+     */
     public String findRoomsWithLimitedCubeLevel(String level) {
         return building.findRoomsWithLimitedCubeLevel(level);
     }
@@ -107,12 +117,22 @@ public class BuildingInfo {
         return String.valueOf(building.countHeatingById(id)/building.countCubeById(id));
     }
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with heating exceeding specified level.
+     *
+     * @param level the specified heating level
+     * @return ids of locations exceeding specified heating level
+     */
     public String findRoomsWithExceededHeatingLevel(String level) {
         return building.findRoomsWithExceededHeatingLevel(level);
     }
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with heating smaller or equal to specified limit level.
+     *
+     * @param level the specified heating limit level
+     * @return ids of locations within limited heating level
+     */
     public String findRoomsWithLimitedHeatingLevel(String level) {
         return building.findRoomsWithLimitedHeatingLevel(level);
     }
@@ -136,7 +156,12 @@ public class BuildingInfo {
         return String.valueOf(building.countLightById(id));
     }
 
-    // TODO dokumentacja
+    /**
+     * Finds rooms with light smaller or equal to specified limit level.
+     *
+     * @param level the specified light limit level
+     * @return ids of locations within limited light level
+     */
     public String findRoomsWithLimitedLightLevel(String level) {
         return building.findRoomsWithLimitedLightLevel(level);
     }
