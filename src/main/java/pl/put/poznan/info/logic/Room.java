@@ -6,9 +6,21 @@ import java.lang.Float;
  * This is the Room class, which acts as the Leaf class of the Composite pattern.
  */
 public class Room extends Location {
+    /**
+     * the area of the room
+     */
     private int area;
+    /**
+     * the cube of the room
+     */
     private int cube;
+    /**
+     * the heating level of the room
+     */
     private float heating;
+    /**
+     * the light of the room
+     */
     private int light;
 
     /**

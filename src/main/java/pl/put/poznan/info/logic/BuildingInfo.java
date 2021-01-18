@@ -8,6 +8,9 @@ import org.json.JSONObject;
  * This is the BuildingInfo class, which returns info about area, cube, heating and light in the building.
  */
 public class BuildingInfo {
+    /**
+     * the building attribute
+     */
     private MidLocation building;
 
     /**

@@ -7,6 +7,9 @@ import java.util.List;
  * This is the MidLocation class, which acts as the Composite class of the Composite pattern.
  */
 public class MidLocation extends Location {
+    /**
+     * the list of locations
+     */
     private List<Location> locations;
 
     /**

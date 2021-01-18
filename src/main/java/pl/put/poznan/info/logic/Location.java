@@ -4,7 +4,13 @@ package pl.put.poznan.info.logic;
  * This is the Location abstract class, which acts as the Base Component class of the Composite pattern.
  */
 public abstract class Location {
+    /**
+     * the identifier of the location
+     */
     private String id;
+    /**
+     * the name of the location
+     */
     private String name;
 
     /**
