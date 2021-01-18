@@ -83,6 +83,11 @@ public class BuildingInfo {
         return String.valueOf(building.countCubeById(id));
     }
 
+    // TODO dokumentacja
+    public String findRoomsWithLimitedCubeLevel(String level) {
+        return building.findRoomsWithLimitedCubeLevel(level);
+    }
+
     /**
      * Counts total heating of the building.
      *

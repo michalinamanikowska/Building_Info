@@ -75,6 +75,16 @@ public class MidLocation extends Location {
     }
 
     @Override
+    public String findRoomsWithLimitedCubeLevel(String level){
+        ArrayList<String> rooms = new ArrayList<>();
+        for (Location l : locations) {
+            String found = l.findRoomsWithLimitedCubeLevel(level);
+            if (!found.isEmpty()) { rooms.add(found); }
+        }
+        return String.join(",", rooms);
+    }
+
+    @Override
     public float countTotalHeating() {
         float heating = 0;
         for (Location l : locations) {

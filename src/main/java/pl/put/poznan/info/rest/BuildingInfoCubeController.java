@@ -45,6 +45,18 @@ public class BuildingInfoCubeController {
         logger.debug("Cube: " + cube);
         return cube;
     }
+
+    @RequestMapping(value = "cube/limit/{level}", method = RequestMethod.POST, produces = "application/json")
+    public String limitedCube(@RequestBody String buildingData, @PathVariable String level) throws JSONException {
+
+        logger.debug(buildingData);
+        logger.debug("Limit level: " + level);
+
+        BuildingInfo informer = new BuildingInfo(buildingData);
+        String rooms = informer.findRoomsWithLimitedCubeLevel(level);
+        logger.debug("Rooms with limited cube level: " + rooms);
+        return rooms;
+    }
 }
 
 

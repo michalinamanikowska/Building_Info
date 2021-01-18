@@ -137,6 +137,15 @@ public class Room extends Location {
     }
 
     @Override
+    public String findRoomsWithLimitedCubeLevel(String level){
+        float fLevel = Float.parseFloat(level);
+        if (Float.compare(this.getCube(), fLevel) <= 0) {
+            return this.getId();
+        }
+        return "";
+    }
+
+    @Override
     public float countTotalHeating() {
         return heating*cube;
     }

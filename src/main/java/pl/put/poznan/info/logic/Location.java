@@ -87,6 +87,9 @@ public abstract class Location {
      */
     public abstract int countCubeById(String id);
 
+    // TODO dokumentacja
+    public abstract String findRoomsWithLimitedCubeLevel(String level);
+
     /**
      * Counts total heating of the location.
      *
