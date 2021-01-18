@@ -59,6 +59,11 @@ public class BuildingInfo {
         return String.valueOf(building.countAreaById(id));
     }
 
+    // TODO dokumentacja
+    public String findRoomsWithLimitedAreaLevel(String level) {
+        return building.findRoomsWithLimitedAreaLevel(level);
+    }
+
     /**
      * Counts total cube of the building.
      *

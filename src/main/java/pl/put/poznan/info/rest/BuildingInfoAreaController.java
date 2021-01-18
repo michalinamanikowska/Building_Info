@@ -43,6 +43,17 @@ public class BuildingInfoAreaController {
         logger.debug("Area:" + area);
         return area;
     }
+
+    @RequestMapping(value = "area/limit/{level}", method = RequestMethod.POST, produces = "application/json")
+    public String limitedArea(@RequestBody String buildingData, @PathVariable String level) throws JSONException {
+
+        logger.debug(buildingData);
+
+        BuildingInfo informer = new BuildingInfo(buildingData);
+        String rooms = informer.findRoomsWithLimitedAreaLevel(level);
+        logger.debug("Rooms with limited area level:" + rooms);
+        return rooms;
+    }
 }
 
 

@@ -69,6 +69,9 @@ public abstract class Location {
      */
     public abstract int countAreaById(String id);
 
+    // TODO dokumentacja
+    public abstract String findRoomsWithLimitedAreaLevel(String level);
+
     /**
      * Counts total cube of the location.
      *

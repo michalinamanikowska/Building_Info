@@ -115,6 +115,15 @@ public class Room extends Location {
     }
 
     @Override
+    public String findRoomsWithLimitedAreaLevel(String level){
+        float fLevel = Float.parseFloat(level);
+        if (Float.compare(this.getArea(), fLevel) <= 0) {
+            return this.getId();
+        }
+        return "";
+    }
+
+    @Override
     public int countTotalCube() {
         return cube;
     }
