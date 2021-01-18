@@ -18,7 +18,7 @@ public class BuildingInfoLightController {
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String light = informer.calculateTotalLight();
-        logger.debug("Light:" + light);
+        logger.debug("Light: " + light);
         return light;
     }
 
@@ -26,10 +26,11 @@ public class BuildingInfoLightController {
     public String levelLight(@RequestBody String buildingData, @PathVariable String id) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Level id: " + id);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String light = informer.calculateLightById(id);
-        logger.debug("Light:" + light);
+        logger.debug("Light: " + light);
         return light;
     }
 
@@ -37,10 +38,11 @@ public class BuildingInfoLightController {
     public String roomLight(@RequestBody String buildingData, @PathVariable String id) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Room id: " + id);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String light = informer.calculateLightById(id);
-        logger.debug("Light:" + light);
+        logger.debug("Light: " + light);
         return light;
     }
 }

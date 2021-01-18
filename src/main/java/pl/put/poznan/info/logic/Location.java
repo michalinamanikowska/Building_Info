@@ -103,7 +103,7 @@ public abstract class Location {
     public abstract float countHeatingById(String id);
 
     // TODO dokumentacja
-    public abstract String findRoomsWithExceededHeatingLevel(String id);
+    public abstract String findRoomsWithExceededHeatingLevel(String level);
 
     /**
      * Counts total light of the location.

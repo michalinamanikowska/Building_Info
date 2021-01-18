@@ -18,7 +18,7 @@ public class BuildingInfoHeatingController {
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String heating = informer.calculateTotalHeating();
-        logger.debug("Heating:" + heating);
+        logger.debug("Heating: " + heating);
         return heating;
     }
 
@@ -26,10 +26,11 @@ public class BuildingInfoHeatingController {
     public String levelHeating(@RequestBody String buildingData, @PathVariable String id) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Level id: " + id);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String heating = informer.calculateHeatingById(id);
-        logger.debug("Heating:" + heating);
+        logger.debug("Heating: " + heating);
         return heating;
     }
 
@@ -37,10 +38,11 @@ public class BuildingInfoHeatingController {
     public String roomHeating(@RequestBody String buildingData, @PathVariable String id) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Room id: " + id);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String heating = informer.calculateHeatingById(id);
-        logger.debug("Heating:" + heating);
+        logger.debug("Heating: " + heating);
         return heating;
     }
 
@@ -48,12 +50,13 @@ public class BuildingInfoHeatingController {
     public String exceededHeating(@RequestBody String buildingData, @PathVariable String level) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Limit level: " + level);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
-        String heating = informer.findRoomsWithExceededHeatingLevel(level);
-        logger.debug("Rooms with exceeded heating level:" + heating);
+        String rooms = informer.findRoomsWithExceededHeatingLevel(level);
+        logger.debug("Rooms with exceeded heating level: " + rooms);
         // TODO functions return json not string
-        return heating;
+        return rooms;
     }
 }
 

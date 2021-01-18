@@ -18,7 +18,7 @@ public class BuildingInfoCubeController {
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String cube = informer.calculateTotalCube();
-        logger.debug("Cube:" + cube);
+        logger.debug("Cube: " + cube);
         return cube;
     }
 
@@ -26,10 +26,11 @@ public class BuildingInfoCubeController {
     public String levelCube(@RequestBody String buildingData, @PathVariable String id) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Level id: " + id);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String cube = informer.calculateCubeById(id);
-        logger.debug("Cube:" + cube);
+        logger.debug("Cube: " + cube);
         return cube;
     }
 
@@ -37,10 +38,11 @@ public class BuildingInfoCubeController {
     public String roomCube(@RequestBody String buildingData, @PathVariable String id) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Room id: " + id);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String cube = informer.calculateCubeById(id);
-        logger.debug("Cube:" + cube);
+        logger.debug("Cube: " + cube);
         return cube;
     }
 }

@@ -18,7 +18,7 @@ public class BuildingInfoAreaController {
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String area = informer.calculateTotalArea();
-        logger.debug("Area:" + area);
+        logger.debug("Area: " + area);
         return area;
     }
 
@@ -26,10 +26,12 @@ public class BuildingInfoAreaController {
     public String levelArea(@RequestBody String buildingData, @PathVariable String id) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Level id: " + id);
+
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String area = informer.calculateAreaById(id);
-        logger.debug("Area:" + area);
+        logger.debug("Area: " + area);
         return area;
     }
 
@@ -37,6 +39,7 @@ public class BuildingInfoAreaController {
     public String roomArea(@RequestBody String buildingData, @PathVariable String id) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Room id: " + id);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String area = informer.calculateAreaById(id);
@@ -48,10 +51,11 @@ public class BuildingInfoAreaController {
     public String limitedArea(@RequestBody String buildingData, @PathVariable String level) throws JSONException {
 
         logger.debug(buildingData);
+        logger.debug("Limit level: " + level);
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String rooms = informer.findRoomsWithLimitedAreaLevel(level);
-        logger.debug("Rooms with limited area level:" + rooms);
+        logger.debug("Rooms with limited area level: " + rooms);
         return rooms;
     }
 }
