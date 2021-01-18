@@ -12,7 +12,7 @@ import pl.put.poznan.info.logic.BuildingInfo;
 @RestController
 public class BuildingInfoAreaController {
     /**
-     * the logger attribute logging info about app execution at the DEBUG and INFO levels
+     * the logger attribute which logs area info about app execution at the DEBUG and INFO levels
      */
     private static final Logger logger = LoggerFactory.getLogger(BuildingInfoAreaController.class);
 
@@ -45,7 +45,6 @@ public class BuildingInfoAreaController {
 
         logger.debug(buildingData);
         logger.debug("Level id: " + id);
-
 
         BuildingInfo informer = new BuildingInfo(buildingData);
         String area = informer.calculateAreaById(id);
