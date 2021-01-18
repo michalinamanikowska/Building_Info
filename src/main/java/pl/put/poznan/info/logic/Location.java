@@ -108,6 +108,9 @@ public abstract class Location {
     // TODO dokumentacja
     public abstract String findRoomsWithExceededHeatingLevel(String level);
 
+    // TODO dokumentacja
+    public abstract String findRoomsWithLimitedHeatingLevel(String level);
+
     /**
      * Counts total light of the location.
      *

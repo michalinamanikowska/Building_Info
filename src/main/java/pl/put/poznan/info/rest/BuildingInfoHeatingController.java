@@ -58,6 +58,18 @@ public class BuildingInfoHeatingController {
         // TODO functions return json not string
         return rooms;
     }
+
+    @RequestMapping(value = "heating/limit/{level}", method = RequestMethod.POST, produces = "application/json")
+    public String limitedHeating(@RequestBody String buildingData, @PathVariable String level) throws JSONException {
+
+        logger.debug(buildingData);
+        logger.debug("Limit level: " + level);
+
+        BuildingInfo informer = new BuildingInfo(buildingData);
+        String rooms = informer.findRoomsWithLimitedHeatingLevel(level);
+        logger.debug("Rooms with limited heating level: " + rooms);
+        return rooms;
+    }
 }
 
 

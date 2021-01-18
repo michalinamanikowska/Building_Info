@@ -112,6 +112,11 @@ public class BuildingInfo {
         return building.findRoomsWithExceededHeatingLevel(level);
     }
 
+    // TODO dokumentacja
+    public String findRoomsWithLimitedHeatingLevel(String level) {
+        return building.findRoomsWithLimitedHeatingLevel(level);
+    }
+
     /**
      * Counts total light of the building.
      *

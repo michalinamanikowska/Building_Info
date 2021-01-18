@@ -168,6 +168,15 @@ public class Room extends Location {
     }
 
     @Override
+    public String findRoomsWithLimitedHeatingLevel(String level){
+        float fLevel = Float.parseFloat(level);
+        if (Float.compare(this.getHeating(), fLevel) <= 0) {
+            return this.getId();
+        }
+        return "";
+    }
+
+    @Override
     public int countTotalLight() {
         return light;
     }
