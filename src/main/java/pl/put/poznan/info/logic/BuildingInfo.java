@@ -44,6 +44,15 @@ public class BuildingInfo {
     }
 
     /**
+     * This is the BuildingInfo constructor, which assigns the MidLocation parameter value to the building attribute.
+     *
+     * @param building MidLocation building object
+     */
+    public BuildingInfo(MidLocation building) {
+        this.building = building;
+    }
+
+    /**
      * Counts total area of the building.
      *
      * @return area of the building
