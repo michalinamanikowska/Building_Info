@@ -1,8 +1,7 @@
 package pl.put.poznan.info.rest;
 
 import org.json.JSONException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.info.logic.BuildingInfo;
 
@@ -27,7 +26,12 @@ public class BuildingInfoHeatingController {
 
         logger.debug(buildingData);
 
-        BuildingInfo informer = new BuildingInfo(buildingData);
+        BuildingInfo informer;
+        try { informer = new BuildingInfo(buildingData); }
+        catch ( JSONException e ) {
+            return "Query body badly formatted!";
+        }
+
         String heating = informer.calculateTotalHeating();
         logger.debug("Heating: " + heating);
         return heating;
@@ -46,7 +50,12 @@ public class BuildingInfoHeatingController {
         logger.debug(buildingData);
         logger.debug("Level id: " + id);
 
-        BuildingInfo informer = new BuildingInfo(buildingData);
+        BuildingInfo informer;
+        try { informer = new BuildingInfo(buildingData); }
+        catch ( JSONException e ) {
+            return "Query body badly formatted!";
+        }
+
         String heating = informer.calculateHeatingById(id);
         logger.debug("Heating: " + heating);
         return heating;
@@ -65,7 +74,12 @@ public class BuildingInfoHeatingController {
         logger.debug(buildingData);
         logger.debug("Room id: " + id);
 
-        BuildingInfo informer = new BuildingInfo(buildingData);
+        BuildingInfo informer;
+        try { informer = new BuildingInfo(buildingData); }
+        catch ( JSONException e ) {
+            return "Query body badly formatted!";
+        }
+
         String heating = informer.calculateHeatingById(id);
         logger.debug("Heating: " + heating);
         return heating;
@@ -84,7 +98,12 @@ public class BuildingInfoHeatingController {
         logger.debug(buildingData);
         logger.debug("Limit level: " + level);
 
-        BuildingInfo informer = new BuildingInfo(buildingData);
+        BuildingInfo informer;
+        try { informer = new BuildingInfo(buildingData); }
+        catch ( JSONException e ) {
+            return "Query body badly formatted!";
+        }
+
         String rooms = informer.findRoomsWithExceededHeatingLevel(level);
         logger.debug("Rooms with exceeded heating level: " + rooms);
         // TODO functions return json not string
@@ -104,7 +123,12 @@ public class BuildingInfoHeatingController {
         logger.debug(buildingData);
         logger.debug("Limit level: " + level);
 
-        BuildingInfo informer = new BuildingInfo(buildingData);
+        BuildingInfo informer;
+        try { informer = new BuildingInfo(buildingData); }
+        catch ( JSONException e ) {
+            return "Query body badly formatted!";
+        }
+
         String rooms = informer.findRoomsWithLimitedHeatingLevel(level);
         logger.debug("Rooms with limited heating level: " + rooms);
         return rooms;

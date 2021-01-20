@@ -1,8 +1,7 @@
 package pl.put.poznan.info.rest;
 
 import org.json.JSONException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.info.logic.BuildingInfo;
 
@@ -27,7 +26,12 @@ public class BuildingInfoCubeController {
 
         logger.debug(buildingData);
 
-        BuildingInfo informer = new BuildingInfo(buildingData);
+        BuildingInfo informer;
+        try { informer = new BuildingInfo(buildingData); }
+        catch ( JSONException e ) {
+            return "Query body badly formatted!";
+        }
+
         String cube = informer.calculateTotalCube();
         logger.debug("Cube: " + cube);
         return cube;
@@ -46,7 +50,12 @@ public class BuildingInfoCubeController {
         logger.debug(buildingData);
         logger.debug("Level id: " + id);
 
-        BuildingInfo informer = new BuildingInfo(buildingData);
+        BuildingInfo informer;
+        try { informer = new BuildingInfo(buildingData); }
+        catch ( JSONException e ) {
+            return "Query body badly formatted!";
+        }
+
         String cube = informer.calculateCubeById(id);
         logger.debug("Cube: " + cube);
         return cube;
@@ -65,7 +74,12 @@ public class BuildingInfoCubeController {
         logger.debug(buildingData);
         logger.debug("Room id: " + id);
 
-        BuildingInfo informer = new BuildingInfo(buildingData);
+        BuildingInfo informer;
+        try { informer = new BuildingInfo(buildingData); }
+        catch ( JSONException e ) {
+            return "Query body badly formatted!";
+        }
+
         String cube = informer.calculateCubeById(id);
         logger.debug("Cube: " + cube);
         return cube;
@@ -84,7 +98,12 @@ public class BuildingInfoCubeController {
         logger.debug(buildingData);
         logger.debug("Limit level: " + level);
 
-        BuildingInfo informer = new BuildingInfo(buildingData);
+        BuildingInfo informer;
+        try { informer = new BuildingInfo(buildingData); }
+        catch ( JSONException e ) {
+            return "Query body badly formatted!";
+        }
+
         String rooms = informer.findRoomsWithLimitedCubeLevel(level);
         logger.debug("Rooms with limited cube level: " + rooms);
         return rooms;
