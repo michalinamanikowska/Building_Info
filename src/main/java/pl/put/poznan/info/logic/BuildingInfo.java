@@ -2,6 +2,10 @@ package pl.put.poznan.info.logic;
 
 import org.json.*;
 
+import java.text.DecimalFormat;
+
+import static java.lang.Double.isNaN;
+
 /**
  * This is the BuildingInfo class, which returns info about area, cube, heating and light in the building.
  */
@@ -9,7 +13,7 @@ public class BuildingInfo {
     /**
      * the building attribute
      */
-    private MidLocation building;
+    private final MidLocation building;
 
     /**
      * This is the BuildingInfo constructor, which reads the json String with building data and creates the instance of the MidLocation class.
@@ -68,8 +72,12 @@ public class BuildingInfo {
      * @return area of the location specified by id
      */
     public String calculateAreaById(String id) throws JSONException {
+        int areaById = building.countCubeById(id);
+        if (areaById == 0) {
+            return "No location with given id!";
+        }
         JSONObject area = new JSONObject();
-        area.put("area", String.valueOf(building.countAreaById(id)));
+        area.put("area", String.valueOf(areaById));
         return area.toString();
     }
 
@@ -103,8 +111,12 @@ public class BuildingInfo {
      * @return cube of the location specified by id
      */
     public String calculateCubeById(String id) throws JSONException {
+        int cubeById = building.countCubeById(id);
+        if (cubeById == 0) {
+            return "No location with given id!";
+        }
         JSONObject cube = new JSONObject();
-        cube.put("cube", String.valueOf(building.countCubeById(id)));
+        cube.put("cube", String.valueOf(cubeById));
         return cube.toString();
     }
 
@@ -138,8 +150,13 @@ public class BuildingInfo {
      * @return heating of the location specified by id
      */
     public String calculateHeatingById(String id) throws JSONException {
+        double heatingById = (double)building.countHeatingById(id)/building.countCubeById(id);
+        if (isNaN(heatingById)) {
+            return "No location with given id!";
+        }
         JSONObject heating = new JSONObject();
-        heating.put("heating", String.valueOf(building.countHeatingById(id)/building.countCubeById(id)));
+        DecimalFormat dec = new DecimalFormat();
+        heating.put("heating", String.valueOf(dec.format(heatingById)));
         return heating.toString();
     }
 
@@ -174,7 +191,8 @@ public class BuildingInfo {
      */
     public String calculateTotalLight() throws JSONException {
         JSONObject light = new JSONObject();
-        light.put("light", String.valueOf(building.countTotalLight()));
+        DecimalFormat dec = new DecimalFormat();
+        light.put("light", String.valueOf(dec.format((double)building.countTotalLight()/building.countTotalArea())));
         return light.toString();
     }
 
@@ -185,8 +203,13 @@ public class BuildingInfo {
      * @return light of the location specified by id
      */
     public String calculateLightById(String id) throws JSONException {
+        double lightById = (double)building.countLightById(id)/building.countAreaById(id);
+        if (isNaN(lightById)) {
+            return "No location with given id!";
+        }
         JSONObject light = new JSONObject();
-        light.put("light", String.valueOf(building.countLightById(id)));
+        DecimalFormat dec = new DecimalFormat();
+        light.put("light", String.valueOf(dec.format(lightById)));
         return light.toString();
     }
 
