@@ -1,5 +1,8 @@
 package pl.put.poznan.info.logic;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 /**
  * This is the Location abstract class, which acts as the Base Component class of the Composite pattern.
  */
@@ -81,7 +84,7 @@ public abstract class Location {
      * @param level the specified area limit level
      * @return ids of locations within limited area level
      */
-    public abstract String findRoomsWithLimitedAreaLevel(String level);
+    public abstract JSONArray findRoomsWithLimitedAreaLevel(String level) throws JSONException;
 
     /**
      * Counts total cube of the location.
@@ -104,7 +107,7 @@ public abstract class Location {
      * @param level the specified cube limit level
      * @return ids of locations within limited cube level
      */
-    public abstract String findRoomsWithLimitedCubeLevel(String level);
+    public abstract JSONArray findRoomsWithLimitedCubeLevel(String level) throws JSONException;
 
     /**
      * Counts total heating of the location.
@@ -127,7 +130,7 @@ public abstract class Location {
      * @param level the specified heating level
      * @return ids of locations exceeding specified heating level
      */
-    public abstract String findRoomsWithExceededHeatingLevel(String level);
+    public abstract JSONArray findRoomsWithExceededHeatingLevel(String level) throws JSONException;
 
     /**
      * Finds rooms with heating smaller or equal to specified limit level.
@@ -135,7 +138,7 @@ public abstract class Location {
      * @param level the specified heating limit level
      * @return ids of locations within limited heating level
      */
-    public abstract String findRoomsWithLimitedHeatingLevel(String level);
+    public abstract JSONArray findRoomsWithLimitedHeatingLevel(String level) throws JSONException;
 
     /**
      * Counts total light of the location.
@@ -158,5 +161,5 @@ public abstract class Location {
      * @param level the specified light limit level
      * @return ids of locations within limited light level
      */
-    public abstract String findRoomsWithLimitedLightLevel(String level);
+    public abstract JSONArray findRoomsWithLimitedLightLevel(String level) throws JSONException;
 }

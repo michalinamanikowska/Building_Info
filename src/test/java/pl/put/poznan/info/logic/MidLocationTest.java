@@ -1,9 +1,12 @@
 package pl.put.poznan.info.logic;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MidLocationTest {
     private MidLocation midLocation = null;
@@ -44,11 +47,11 @@ class MidLocationTest {
     }
 
     @Test
-    void testFindRoomsWithLimitedAreaLevel() {
-        assertEquals("",midLocation.findRoomsWithLimitedAreaLevel(String.valueOf(1)));
-        assertEquals("room1Id",midLocation.findRoomsWithLimitedAreaLevel(String.valueOf(5)));
-        assertEquals("room1Id,room2Id,room3Id",midLocation.findRoomsWithLimitedAreaLevel(String.valueOf(25)));
-        assertEquals("room1Id,room2Id,room3Id,room4Id,room5Id",midLocation.findRoomsWithLimitedAreaLevel(String.valueOf(41)));
+    void testFindRoomsWithLimitedAreaLevel() throws JSONException {
+        JSONAssert.assertEquals(new JSONArray(),midLocation.findRoomsWithLimitedAreaLevel(String.valueOf(1)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"}]"),midLocation.findRoomsWithLimitedAreaLevel(String.valueOf(5)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"},{\"id\":\"room3Id\"}]"),midLocation.findRoomsWithLimitedAreaLevel(String.valueOf(25)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"},{\"id\":\"room3Id\"},{\"id\":\"room4Id\"},{\"id\":\"room5Id\"}]"),midLocation.findRoomsWithLimitedAreaLevel(String.valueOf(41)),true);
     }
 
     @Test
@@ -65,11 +68,11 @@ class MidLocationTest {
     }
 
     @Test
-    void testFindRoomsWithLimitedCubeLevel() {
-        assertEquals("",midLocation.findRoomsWithLimitedCubeLevel(String.valueOf(19)));
-        assertEquals("room1Id",midLocation.findRoomsWithLimitedCubeLevel(String.valueOf(20)));
-        assertEquals("room1Id,room2Id,room3Id,room4Id",midLocation.findRoomsWithLimitedCubeLevel(String.valueOf(130)));
-        assertEquals("room1Id,room2Id,room3Id,room4Id,room5Id",midLocation.findRoomsWithLimitedCubeLevel(String.valueOf(1000)));
+    void testFindRoomsWithLimitedCubeLevel() throws JSONException {
+        JSONAssert.assertEquals(new JSONArray(),midLocation.findRoomsWithLimitedCubeLevel(String.valueOf(19)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"}]"),midLocation.findRoomsWithLimitedCubeLevel(String.valueOf(20)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"},{\"id\":\"room3Id\"},{\"id\":\"room4Id\"}]"),midLocation.findRoomsWithLimitedCubeLevel(String.valueOf(130)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"},{\"id\":\"room3Id\"},{\"id\":\"room4Id\"},{\"id\":\"room5Id\"}]"),midLocation.findRoomsWithLimitedCubeLevel(String.valueOf(1000)),true);
     }
 
     @Test
@@ -86,18 +89,18 @@ class MidLocationTest {
     }
 
     @Test
-    void testFindRoomsWithExceededHeatingLevel() {
-        assertEquals("room1Id,room2Id,room3Id,room4Id,room5Id",midLocation.findRoomsWithExceededHeatingLevel(String.valueOf(1)));
-        assertEquals("room1Id,room2Id,room4Id,room5Id",midLocation.findRoomsWithExceededHeatingLevel(String.valueOf(3.1)));
-        assertEquals("room5Id",midLocation.findRoomsWithExceededHeatingLevel(String.valueOf(22.5)));
-        assertEquals("",midLocation.findRoomsWithExceededHeatingLevel(String.valueOf(22.6)));
+    void testFindRoomsWithExceededHeatingLevel() throws JSONException {
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"},{\"id\":\"room3Id\"},{\"id\":\"room4Id\"},{\"id\":\"room5Id\"}]"),midLocation.findRoomsWithExceededHeatingLevel(String.valueOf(1)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"},{\"id\":\"room4Id\"},{\"id\":\"room5Id\"}]"),midLocation.findRoomsWithExceededHeatingLevel(String.valueOf(3.1)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room5Id\"}]"),midLocation.findRoomsWithExceededHeatingLevel(String.valueOf(22.5)),true);
+        JSONAssert.assertEquals(new JSONArray(),midLocation.findRoomsWithExceededHeatingLevel(String.valueOf(22.6)),true);
     }
 
     @Test
-    void testFindRoomsWithLimitedHeatingLevel() {
-        assertEquals("",midLocation.findRoomsWithLimitedHeatingLevel(String.valueOf(3)));
-        assertEquals("room3Id",midLocation.findRoomsWithLimitedHeatingLevel(String.valueOf(3.1)));
-        assertEquals("room1Id,room2Id,room3Id,room4Id",midLocation.findRoomsWithLimitedHeatingLevel(String.valueOf(17.2)));
+    void testFindRoomsWithLimitedHeatingLevel() throws JSONException {
+        JSONAssert.assertEquals(new JSONArray(),midLocation.findRoomsWithLimitedHeatingLevel(String.valueOf(3)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room3Id\"}]"),midLocation.findRoomsWithLimitedHeatingLevel(String.valueOf(3.1)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"},{\"id\":\"room3Id\"},{\"id\":\"room4Id\"}]"),midLocation.findRoomsWithLimitedHeatingLevel(String.valueOf(17.2)),true);
     }
 
     @Test
@@ -114,10 +117,10 @@ class MidLocationTest {
     }
 
     @Test
-    void testFindRoomsWithLimitedLightLevel() {
-        assertEquals("",midLocation.findRoomsWithLimitedLightLevel(String.valueOf(89)));
-        assertEquals("room1Id,room2Id",midLocation.findRoomsWithLimitedLightLevel(String.valueOf(250)));
-        assertEquals("room1Id,room2Id,room3Id,room4Id",midLocation.findRoomsWithLimitedLightLevel(String.valueOf(1000)));
-        assertEquals("room1Id,room2Id,room3Id,room4Id,room5Id",midLocation.findRoomsWithLimitedLightLevel(String.valueOf(2000)));
+    void testFindRoomsWithLimitedLightLevel() throws JSONException {
+        JSONAssert.assertEquals(new JSONArray(),midLocation.findRoomsWithLimitedLightLevel(String.valueOf(89)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"}]"),midLocation.findRoomsWithLimitedLightLevel(String.valueOf(250)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"},{\"id\":\"room3Id\"},{\"id\":\"room4Id\"}]"),midLocation.findRoomsWithLimitedLightLevel(String.valueOf(1000)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"room1Id\"},{\"id\":\"room2Id\"},{\"id\":\"room3Id\"},{\"id\":\"room4Id\"},{\"id\":\"room5Id\"}]"),midLocation.findRoomsWithLimitedLightLevel(String.valueOf(2000)),true);
     }
 }

@@ -1,5 +1,8 @@
 package pl.put.poznan.info.logic;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,13 +49,15 @@ public class MidLocation extends Location {
     }
 
     @Override
-    public String findRoomsWithLimitedAreaLevel(String level){
-        ArrayList<String> rooms = new ArrayList<>();
+    public JSONArray findRoomsWithLimitedAreaLevel(String level) throws JSONException {
+        JSONArray rooms = new JSONArray();
         for (Location l : locations) {
-            String found = l.findRoomsWithLimitedAreaLevel(level);
-            if (!found.isEmpty()) { rooms.add(found); }
+            JSONArray ids = l.findRoomsWithLimitedAreaLevel(level);
+            for (int i = 0; i < ids.length(); i++) {
+                rooms.put(ids.getJSONObject(i));
+            }
         }
-        return String.join(",", rooms);
+        return rooms;
     }
 
     @Override
@@ -78,13 +83,15 @@ public class MidLocation extends Location {
     }
 
     @Override
-    public String findRoomsWithLimitedCubeLevel(String level){
-        ArrayList<String> rooms = new ArrayList<>();
+    public JSONArray findRoomsWithLimitedCubeLevel(String level) throws JSONException {
+        JSONArray rooms = new JSONArray();
         for (Location l : locations) {
-            String found = l.findRoomsWithLimitedCubeLevel(level);
-            if (!found.isEmpty()) { rooms.add(found); }
+            JSONArray ids = l.findRoomsWithLimitedCubeLevel(level);
+            for (int i = 0; i < ids.length(); i++) {
+                rooms.put(ids.getJSONObject(i));
+            }
         }
-        return String.join(",", rooms);
+        return rooms;
     }
 
     @Override
@@ -110,23 +117,27 @@ public class MidLocation extends Location {
     }
 
     @Override
-    public String findRoomsWithExceededHeatingLevel(String level){
-        ArrayList<String> rooms = new ArrayList<>();
+    public JSONArray findRoomsWithExceededHeatingLevel(String level) throws JSONException {
+        JSONArray rooms = new JSONArray();
         for (Location l : locations) {
-            String found = l.findRoomsWithExceededHeatingLevel(level);
-            if (!found.isEmpty()) { rooms.add(found); }
+            JSONArray ids = l.findRoomsWithExceededHeatingLevel(level);
+            for (int i = 0; i < ids.length(); i++) {
+                rooms.put(ids.getJSONObject(i));
+            }
         }
-        return String.join(",", rooms);
+        return rooms;
     }
 
     @Override
-    public String findRoomsWithLimitedHeatingLevel(String level){
-        ArrayList<String> rooms = new ArrayList<>();
+    public JSONArray findRoomsWithLimitedHeatingLevel(String level) throws JSONException {
+        JSONArray rooms = new JSONArray();
         for (Location l : locations) {
-            String found = l.findRoomsWithLimitedHeatingLevel(level);
-            if (!found.isEmpty()) { rooms.add(found); }
+            JSONArray ids = l.findRoomsWithLimitedHeatingLevel(level);
+            for (int i = 0; i < ids.length(); i++) {
+                rooms.put(ids.getJSONObject(i));
+            }
         }
-        return String.join(",", rooms);
+        return rooms;
     }
 
     @Override
@@ -152,13 +163,15 @@ public class MidLocation extends Location {
     }
 
     @Override
-    public String findRoomsWithLimitedLightLevel(String level){
-        ArrayList<String> rooms = new ArrayList<>();
+    public JSONArray findRoomsWithLimitedLightLevel(String level) throws JSONException {
+        JSONArray rooms = new JSONArray();
         for (Location l : locations) {
-            String found = l.findRoomsWithLimitedLightLevel(level);
-            if (!found.isEmpty()) { rooms.add(found); }
+            JSONArray ids = l.findRoomsWithLimitedLightLevel(level);
+            for (int i = 0; i < ids.length(); i++) {
+                rooms.put(ids.getJSONObject(i));
+            }
         }
-        return String.join(",", rooms);
+        return rooms;
     }
 
     /**

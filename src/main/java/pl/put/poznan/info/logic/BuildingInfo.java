@@ -1,8 +1,6 @@
 package pl.put.poznan.info.logic;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.*;
 
 /**
  * This is the BuildingInfo class, which returns info about area, cube, heating and light in the building.
@@ -57,8 +55,10 @@ public class BuildingInfo {
      *
      * @return area of the building
      */
-    public String calculateTotalArea() {
-        return String.valueOf(building.countTotalArea());
+    public String calculateTotalArea() throws JSONException {
+        JSONObject area = new JSONObject();
+        area.put("area", String.valueOf(building.countTotalArea()));
+        return area.toString();
     }
 
     /**
@@ -67,8 +67,10 @@ public class BuildingInfo {
      * @param id the id of the required location
      * @return area of the location specified by id
      */
-    public String calculateAreaById(String id) {
-        return String.valueOf(building.countAreaById(id));
+    public String calculateAreaById(String id) throws JSONException {
+        JSONObject area = new JSONObject();
+        area.put("area", String.valueOf(building.countAreaById(id)));
+        return area.toString();
     }
 
     /**
@@ -77,8 +79,10 @@ public class BuildingInfo {
      * @param level the specified area limit level
      * @return ids of locations within limited area level
      */
-    public String findRoomsWithLimitedAreaLevel(String level) {
-        return building.findRoomsWithLimitedAreaLevel(level);
+    public String findRoomsWithLimitedAreaLevel(String level) throws JSONException {
+        JSONObject rooms = new JSONObject();
+        rooms.put("rooms", building.findRoomsWithLimitedAreaLevel(level));
+        return rooms.toString();
     }
 
     /**
@@ -86,8 +90,10 @@ public class BuildingInfo {
      *
      * @return cube of the building
      */
-    public String calculateTotalCube() {
-        return String.valueOf(building.countTotalCube());
+    public String calculateTotalCube() throws JSONException {
+        JSONObject cube = new JSONObject();
+        cube.put("cube", String.valueOf(building.countTotalCube()));
+        return cube.toString();
     }
 
     /**
@@ -96,8 +102,10 @@ public class BuildingInfo {
      * @param id the id of the required location
      * @return cube of the location specified by id
      */
-    public String calculateCubeById(String id) {
-        return String.valueOf(building.countCubeById(id));
+    public String calculateCubeById(String id) throws JSONException {
+        JSONObject cube = new JSONObject();
+        cube.put("cube", String.valueOf(building.countCubeById(id)));
+        return cube.toString();
     }
 
     /**
@@ -106,8 +114,10 @@ public class BuildingInfo {
      * @param level the specified cube limit level
      * @return ids of locations within limited cube level
      */
-    public String findRoomsWithLimitedCubeLevel(String level) {
-        return building.findRoomsWithLimitedCubeLevel(level);
+    public String findRoomsWithLimitedCubeLevel(String level) throws JSONException {
+        JSONObject rooms = new JSONObject();
+        rooms.put("rooms", building.findRoomsWithLimitedCubeLevel(level));
+        return rooms.toString();
     }
 
     /**
@@ -115,8 +125,10 @@ public class BuildingInfo {
      *
      * @return heating of the building
      */
-    public String calculateTotalHeating() {
-        return String.valueOf(building.countTotalHeating()/building.countTotalCube());
+    public String calculateTotalHeating() throws JSONException {
+        JSONObject heating = new JSONObject();
+        heating.put("heating", String.valueOf(building.countTotalHeating()/building.countTotalCube()));
+        return heating.toString();
     }
 
     /**
@@ -125,8 +137,10 @@ public class BuildingInfo {
      * @param id the id of the required location
      * @return heating of the location specified by id
      */
-    public String calculateHeatingById(String id) {
-        return String.valueOf(building.countHeatingById(id)/building.countCubeById(id));
+    public String calculateHeatingById(String id) throws JSONException {
+        JSONObject heating = new JSONObject();
+        heating.put("heating", String.valueOf(building.countHeatingById(id)/building.countCubeById(id)));
+        return heating.toString();
     }
 
     /**
@@ -135,8 +149,10 @@ public class BuildingInfo {
      * @param level the specified heating level
      * @return ids of locations exceeding specified heating level
      */
-    public String findRoomsWithExceededHeatingLevel(String level) {
-        return building.findRoomsWithExceededHeatingLevel(level);
+    public String findRoomsWithExceededHeatingLevel(String level) throws JSONException {
+        JSONObject rooms = new JSONObject();
+        rooms.put("rooms", building.findRoomsWithExceededHeatingLevel(level));
+        return rooms.toString();
     }
 
     /**
@@ -145,8 +161,10 @@ public class BuildingInfo {
      * @param level the specified heating limit level
      * @return ids of locations within limited heating level
      */
-    public String findRoomsWithLimitedHeatingLevel(String level) {
-        return building.findRoomsWithLimitedHeatingLevel(level);
+    public String findRoomsWithLimitedHeatingLevel(String level) throws JSONException {
+        JSONObject rooms = new JSONObject();
+        rooms.put("rooms", building.findRoomsWithLimitedHeatingLevel(level));
+        return rooms.toString();
     }
 
     /**
@@ -154,8 +172,10 @@ public class BuildingInfo {
      *
      * @return light of the building
      */
-    public String calculateTotalLight() {
-        return String.valueOf(building.countTotalLight());
+    public String calculateTotalLight() throws JSONException {
+        JSONObject light = new JSONObject();
+        light.put("light", String.valueOf(building.countTotalLight()));
+        return light.toString();
     }
 
     /**
@@ -164,8 +184,10 @@ public class BuildingInfo {
      * @param id the id of the required location
      * @return light of the location specified by id
      */
-    public String calculateLightById(String id) {
-        return String.valueOf(building.countLightById(id));
+    public String calculateLightById(String id) throws JSONException {
+        JSONObject light = new JSONObject();
+        light.put("light", String.valueOf(building.countLightById(id)));
+        return light.toString();
     }
 
     /**
@@ -174,7 +196,9 @@ public class BuildingInfo {
      * @param level the specified light limit level
      * @return ids of locations within limited light level
      */
-    public String findRoomsWithLimitedLightLevel(String level) {
-        return building.findRoomsWithLimitedLightLevel(level);
+    public String findRoomsWithLimitedLightLevel(String level) throws JSONException {
+        JSONObject rooms = new JSONObject();
+        rooms.put("rooms", building.findRoomsWithLimitedLightLevel(level));
+        return rooms.toString();
     }
 }

@@ -1,5 +1,9 @@
 package pl.put.poznan.info.logic;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.lang.Float;
 
 /**
@@ -127,12 +131,15 @@ public class Room extends Location {
     }
 
     @Override
-    public String findRoomsWithLimitedAreaLevel(String level){
+    public JSONArray findRoomsWithLimitedAreaLevel(String level) throws JSONException {
         float fLevel = Float.parseFloat(level);
+        JSONArray ids = new JSONArray();
         if (Float.compare(this.getArea(), fLevel) <= 0) {
-            return this.getId();
+            JSONObject id = new JSONObject();
+            id.put("id",String.valueOf(this.getId()));
+            ids.put(id);
         }
-        return "";
+        return ids;
     }
 
     @Override
@@ -149,12 +156,15 @@ public class Room extends Location {
     }
 
     @Override
-    public String findRoomsWithLimitedCubeLevel(String level){
+    public JSONArray findRoomsWithLimitedCubeLevel(String level) throws JSONException {
         float fLevel = Float.parseFloat(level);
+        JSONArray ids = new JSONArray();
         if (Float.compare(this.getCube(), fLevel) <= 0) {
-            return this.getId();
+            JSONObject id = new JSONObject();
+            id.put("id",String.valueOf(this.getId()));
+            ids.put(id);
         }
-        return "";
+        return ids;
     }
 
     @Override
@@ -171,21 +181,27 @@ public class Room extends Location {
     }
 
     @Override
-    public String findRoomsWithExceededHeatingLevel(String level){
+    public JSONArray findRoomsWithExceededHeatingLevel(String level) throws JSONException {
         float fLevel = Float.parseFloat(level);
+        JSONArray ids = new JSONArray();
         if (Float.compare(this.getHeating(), fLevel) > 0) {
-            return this.getId();
+            JSONObject id = new JSONObject();
+            id.put("id",String.valueOf(this.getId()));
+            ids.put(id);
         }
-        return "";
+        return ids;
     }
 
     @Override
-    public String findRoomsWithLimitedHeatingLevel(String level){
+    public JSONArray findRoomsWithLimitedHeatingLevel(String level) throws JSONException {
         float fLevel = Float.parseFloat(level);
+        JSONArray ids = new JSONArray();
         if (Float.compare(this.getHeating(), fLevel) <= 0) {
-            return this.getId();
+            JSONObject id = new JSONObject();
+            id.put("id",String.valueOf(this.getId()));
+            ids.put(id);
         }
-        return "";
+        return ids;
     }
 
     @Override
@@ -202,11 +218,14 @@ public class Room extends Location {
     }
 
     @Override
-    public String findRoomsWithLimitedLightLevel(String level){
+    public JSONArray findRoomsWithLimitedLightLevel(String level) throws JSONException {
         float fLevel = Float.parseFloat(level);
+        JSONArray ids = new JSONArray();
         if (Float.compare(this.getLight(), fLevel) <= 0) {
-            return this.getId();
+            JSONObject id = new JSONObject();
+            id.put("id",String.valueOf(this.getId()));
+            ids.put(id);
         }
-        return "";
+        return ids;
     }
 }

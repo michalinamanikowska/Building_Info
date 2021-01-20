@@ -1,6 +1,8 @@
 package pl.put.poznan.info.logic;
 
-import org.junit.jupiter.api.Test;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -8,7 +10,7 @@ import static org.mockito.Mockito.*;
 class BuildingInfoTest {
 
     @Test
-    void testCalculateTotalArea() {
+    void testCalculateTotalArea() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
@@ -19,11 +21,11 @@ class BuildingInfoTest {
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("20",informer.calculateTotalArea());
+        assertEquals("{\"area\":\"20\"}", informer.calculateTotalArea());
     }
 
     @Test
-    void testCalculateAreaById() {
+    void testCalculateAreaById() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
@@ -35,29 +37,29 @@ class BuildingInfoTest {
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("100",informer.calculateAreaById("id"));
-        assertEquals("237",informer.calculateAreaById("id2"));
+        assertEquals("{\"area\":\"100\"}",informer.calculateAreaById("id"));
+        assertEquals("{\"area\":\"237\"}",informer.calculateAreaById("id2"));
     }
 
     @Test
-    void testFindRoomsWithLimitedAreaLevel() {
+    void testFindRoomsWithLimitedAreaLevel() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
         // define return values for findRoomsWithLimitedAreaLevel() method
-        when(building.findRoomsWithLimitedAreaLevel("10")).thenReturn("");
-        when(building.findRoomsWithLimitedAreaLevel("100")).thenReturn("room1Id,room3Id");
+        when(building.findRoomsWithLimitedAreaLevel("10")).thenReturn(new JSONArray());
+        when(building.findRoomsWithLimitedAreaLevel("100")).thenReturn(new JSONArray().put("room1Id").put("room3Id"));
 
         // interaction phase
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("",informer.findRoomsWithLimitedAreaLevel("10"));
-        assertEquals("room1Id,room3Id",informer.findRoomsWithLimitedAreaLevel("100"));
+        assertEquals("{\"rooms\":[]}",informer.findRoomsWithLimitedAreaLevel("10"));
+        assertEquals("{\"rooms\":[\"room1Id\",\"room3Id\"]}",informer.findRoomsWithLimitedAreaLevel("100"));
     }
 
     @Test
-    void testCalculateTotalCube() {
+    void testCalculateTotalCube() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
@@ -68,11 +70,11 @@ class BuildingInfoTest {
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("60",informer.calculateTotalCube());
+        assertEquals("{\"cube\":\"60\"}",informer.calculateTotalCube());
     }
 
     @Test
-    void testCalculateCubeById() {
+    void testCalculateCubeById() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
@@ -84,29 +86,29 @@ class BuildingInfoTest {
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("0",informer.calculateCubeById("id"));
-        assertEquals("80",informer.calculateCubeById("id2"));
+        assertEquals("{\"cube\":\"0\"}",informer.calculateCubeById("id"));
+        assertEquals("{\"cube\":\"80\"}",informer.calculateCubeById("id2"));
     }
 
     @Test
-    void testFindRoomsWithLimitedCubeLevel() {
+    void testFindRoomsWithLimitedCubeLevel() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
         // define return values for findRoomsWithLimitedCubeLevel() method
-        when(building.findRoomsWithLimitedCubeLevel("30")).thenReturn("");
-        when(building.findRoomsWithLimitedCubeLevel("120")).thenReturn("room1Id,room4Id,room5Id");
+        when(building.findRoomsWithLimitedCubeLevel("30")).thenReturn(new JSONArray());
+        when(building.findRoomsWithLimitedCubeLevel("120")).thenReturn(new JSONArray().put("room1Id").put("room4Id").put("room5Id"));
 
         // interaction phase
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("",informer.findRoomsWithLimitedCubeLevel("30"));
-        assertEquals("room1Id,room4Id,room5Id",informer.findRoomsWithLimitedCubeLevel("120"));
+        assertEquals("{\"rooms\":[]}",informer.findRoomsWithLimitedCubeLevel("30"));
+        assertEquals("{\"rooms\":[\"room1Id\",\"room4Id\",\"room5Id\"]}",informer.findRoomsWithLimitedCubeLevel("120"));
     }
 
     @Test
-    void testCalculateTotalHeating() {
+    void testCalculateTotalHeating() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
@@ -118,11 +120,11 @@ class BuildingInfoTest {
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("17.2",informer.calculateTotalHeating());
+        assertEquals("{\"heating\":\"17.2\"}",informer.calculateTotalHeating());
     }
 
     @Test
-    void testCalculateHeatingById() {
+    void testCalculateHeatingById() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
@@ -136,46 +138,46 @@ class BuildingInfoTest {
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("3.1",informer.calculateHeatingById("id"));
-        assertEquals("22.6",informer.calculateHeatingById("id2"));
+        assertEquals("{\"heating\":\"3.1\"}",informer.calculateHeatingById("id"));
+        assertEquals("{\"heating\":\"22.6\"}",informer.calculateHeatingById("id2"));
     }
 
     @Test
-    void testFindRoomsWithExceededHeatingLevel() {
+    void testFindRoomsWithExceededHeatingLevel() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
         // define return values for findRoomsWithExceededHeatingLevel() method
-        when(building.findRoomsWithExceededHeatingLevel("3.1")).thenReturn("room2Id,room3Id,room4Id,room6Id");
-        when(building.findRoomsWithExceededHeatingLevel("12.5")).thenReturn("room6Id");
+        when(building.findRoomsWithExceededHeatingLevel("3.1")).thenReturn(new JSONArray().put("room2Id").put("room3Id").put("room4Id").put("room6Id"));
+        when(building.findRoomsWithExceededHeatingLevel("12.5")).thenReturn(new JSONArray().put("room6Id"));
 
         // interaction phase
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("room2Id,room3Id,room4Id,room6Id",informer.findRoomsWithExceededHeatingLevel("3.1"));
-        assertEquals("room6Id",informer.findRoomsWithExceededHeatingLevel("12.5"));
+        assertEquals("{\"rooms\":[\"room2Id\",\"room3Id\",\"room4Id\",\"room6Id\"]}",informer.findRoomsWithExceededHeatingLevel("3.1"));
+        assertEquals("{\"rooms\":[\"room6Id\"]}",informer.findRoomsWithExceededHeatingLevel("12.5"));
     }
 
     @Test
-    void testFindRoomsWithLimitedHeatingLevel() {
+    void testFindRoomsWithLimitedHeatingLevel() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
         // define return values for findRoomsWithLimitedHeatingLevel() method
-        when(building.findRoomsWithLimitedHeatingLevel("3.1")).thenReturn("");
-        when(building.findRoomsWithLimitedHeatingLevel("12.5")).thenReturn("room1Id,room2Id,room3Id");
+        when(building.findRoomsWithLimitedHeatingLevel("3.1")).thenReturn(new JSONArray());
+        when(building.findRoomsWithLimitedHeatingLevel("12.5")).thenReturn(new JSONArray().put("room1Id").put("room2Id").put("room3Id"));
 
         // interaction phase
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("",informer.findRoomsWithLimitedHeatingLevel("3.1"));
-        assertEquals("room1Id,room2Id,room3Id",informer.findRoomsWithLimitedHeatingLevel("12.5"));
+        assertEquals("{\"rooms\":[]}",informer.findRoomsWithLimitedHeatingLevel("3.1"));
+        assertEquals("{\"rooms\":[\"room1Id\",\"room2Id\",\"room3Id\"]}",informer.findRoomsWithLimitedHeatingLevel("12.5"));
     }
 
     @Test
-    void testCalculateTotalLight() {
+    void testCalculateTotalLight() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
@@ -186,11 +188,11 @@ class BuildingInfoTest {
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("520",informer.calculateTotalLight());
+        assertEquals("{\"light\":\"520\"}",informer.calculateTotalLight());
     }
 
     @Test
-    void testCalculateLightById() {
+    void testCalculateLightById() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
@@ -202,24 +204,24 @@ class BuildingInfoTest {
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("0",informer.calculateLightById("id"));
-        assertEquals("520",informer.calculateLightById("id2"));
+        assertEquals("{\"light\":\"0\"}",informer.calculateLightById("id"));
+        assertEquals("{\"light\":\"520\"}",informer.calculateLightById("id2"));
     }
 
     @Test
-    void testFindRoomsWithLimitedLightLevel() {
+    void testFindRoomsWithLimitedLightLevel() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
         // define return values for findRoomsWithLimitedLightLevel() method
-        when(building.findRoomsWithLimitedLightLevel("50")).thenReturn("room1Id");
-        when(building.findRoomsWithLimitedLightLevel("810")).thenReturn("room1Id,room2Id,room3Id");
+        when(building.findRoomsWithLimitedLightLevel("50")).thenReturn(new JSONArray().put("room1Id"));
+        when(building.findRoomsWithLimitedLightLevel("810")).thenReturn(new JSONArray().put("room1Id").put("room2Id").put("room3Id"));
 
         // interaction phase
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("room1Id",informer.findRoomsWithLimitedLightLevel("50"));
-        assertEquals("room1Id,room2Id,room3Id",informer.findRoomsWithLimitedLightLevel("810"));
+        assertEquals("{\"rooms\":[\"room1Id\"]}",informer.findRoomsWithLimitedLightLevel("50"));
+        assertEquals("{\"rooms\":[\"room1Id\",\"room2Id\",\"room3Id\"]}",informer.findRoomsWithLimitedLightLevel("810"));
     }
 }
