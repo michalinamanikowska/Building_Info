@@ -72,7 +72,7 @@ public class BuildingInfo {
      * @return area of the location specified by id
      */
     public String calculateAreaById(String id) throws JSONException {
-        int areaById = building.countCubeById(id);
+        int areaById = building.countAreaById(id);
         if (areaById == 0) {
             return "No location with given id!";
         }

@@ -42,6 +42,21 @@ class BuildingInfoTest {
     }
 
     @Test
+    void testCalculateAreaByIdExceptionWrongId() throws JSONException {
+        // create mock object for building
+        MidLocation building = mock(MidLocation.class);
+
+        // countAreaById() method returns 0
+        when(building.countAreaById("wrongId")).thenReturn(0);
+
+        // interaction phase
+        BuildingInfo informer = new BuildingInfo(building);
+
+        // verification of the expected value with the method
+        assertEquals("No location with given id!",informer.calculateAreaById("wrongId"));
+    }
+
+    @Test
     void testFindRoomsWithLimitedAreaLevel() throws JSONException {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
@@ -79,15 +94,28 @@ class BuildingInfoTest {
         MidLocation building = mock(MidLocation.class);
 
         // define return values for countCubeById() method
-        when(building.countCubeById("id")).thenReturn(0);
-        when(building.countCubeById("id2")).thenReturn(80);
+        when(building.countCubeById("id")).thenReturn(80);
 
         // interaction phase
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("{\"cube\":\"0\"}",informer.calculateCubeById("id"));
-        assertEquals("{\"cube\":\"80\"}",informer.calculateCubeById("id2"));
+        assertEquals("{\"cube\":\"80\"}",informer.calculateCubeById("id"));
+    }
+
+    @Test
+    void testCalculateCubeByIdExceptionWrongId() throws JSONException {
+        // create mock object for building
+        MidLocation building = mock(MidLocation.class);
+
+        // countCubeById() method returns 0
+        when(building.countCubeById("wrongId")).thenReturn(0);
+
+        // interaction phase
+        BuildingInfo informer = new BuildingInfo(building);
+
+        // verification of the expected value with the method
+        assertEquals("No location with given id!",informer.calculateCubeById("wrongId"));
     }
 
     @Test
@@ -140,6 +168,22 @@ class BuildingInfoTest {
         // verification of the expected value with the method
         assertEquals("{\"heating\":\"3.1\"}",informer.calculateHeatingById("id"));
         assertEquals("{\"heating\":\"22.6\"}",informer.calculateHeatingById("id2"));
+    }
+
+    @Test
+    void testCalculateHeatingByIdExceptionWrongId() throws JSONException {
+        // create mock object for building
+        MidLocation building = mock(MidLocation.class);
+
+        // define return values for countHeatingById() and countCubeById() methods
+        when(building.countHeatingById("wrongId")).thenReturn((float)0);
+        when(building.countCubeById("wrongId")).thenReturn(0);
+
+        // interaction phase
+        BuildingInfo informer = new BuildingInfo(building);
+
+        // verification of the expected value with the method
+        assertEquals("No location with given id!",informer.calculateHeatingById("wrongId"));
     }
 
     @Test
@@ -206,6 +250,22 @@ class BuildingInfoTest {
 
         // verification of the expected value with the method
         assertEquals("{\"light\":\"27\"}",informer.calculateLightById("id"));
+    }
+
+    @Test
+    void testCalculateLightByIdExceptionWrongId() throws JSONException {
+        // create mock object for building
+        MidLocation building = mock(MidLocation.class);
+
+        // define return values for countLightById() and countAreaById() methods
+        when(building.countLightById("wrongId")).thenReturn(0);
+        when(building.countAreaById("wrongId")).thenReturn(0);
+
+        // interaction phase
+        BuildingInfo informer = new BuildingInfo(building);
+
+        // verification of the expected value with the method
+        assertEquals("No location with given id!",informer.calculateLightById("wrongId"));
     }
 
     @Test
