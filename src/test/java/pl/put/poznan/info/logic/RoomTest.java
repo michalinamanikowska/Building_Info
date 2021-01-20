@@ -90,8 +90,8 @@ class RoomTest {
 
     @Test
     void testFindRoomsWithLimitedLightLevel() throws JSONException {
-        JSONAssert.assertEquals(new JSONArray(),room.findRoomsWithLimitedLightLevel(String.valueOf(519)),true);
-        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"roomId\"}]"),room.findRoomsWithLimitedLightLevel(String.valueOf(520)),true);
-        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"roomId\"}]"),room.findRoomsWithLimitedLightLevel(String.valueOf(521)),true);
+        JSONAssert.assertEquals(new JSONArray(),room.findRoomsWithLimitedLightLevel(String.valueOf(25)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"roomId\"}]"),room.findRoomsWithLimitedLightLevel(String.valueOf(26)),true);
+        JSONAssert.assertEquals(new JSONArray("[{\"id\":\"roomId\"}]"),room.findRoomsWithLimitedLightLevel(String.valueOf(27)),true);
     }
 }

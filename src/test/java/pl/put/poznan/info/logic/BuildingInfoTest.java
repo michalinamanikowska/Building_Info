@@ -181,14 +181,15 @@ class BuildingInfoTest {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
-        // countTotalLight() method returns 60
+        // define return values for countTotalLight() and countTotalArea() methods
         when(building.countTotalLight()).thenReturn(520);
+        when(building.countTotalArea()).thenReturn(20);
 
         // interaction phase
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("{\"light\":\"520\"}",informer.calculateTotalLight());
+        assertEquals("{\"light\":\"26\"}",informer.calculateTotalLight());
     }
 
     @Test
@@ -196,16 +197,15 @@ class BuildingInfoTest {
         // create mock object for building
         MidLocation building = mock(MidLocation.class);
 
-        // define return values for countLightById() method
-        when(building.countLightById("id")).thenReturn(0);
-        when(building.countLightById("id2")).thenReturn(520);
+        // define return values for countLightById() and countAreaById() methods
+        when(building.countLightById("id")).thenReturn(810);
+        when(building.countAreaById("id")).thenReturn(30);
 
         // interaction phase
         BuildingInfo informer = new BuildingInfo(building);
 
         // verification of the expected value with the method
-        assertEquals("{\"light\":\"0\"}",informer.calculateLightById("id"));
-        assertEquals("{\"light\":\"520\"}",informer.calculateLightById("id2"));
+        assertEquals("{\"light\":\"27\"}",informer.calculateLightById("id"));
     }
 
     @Test

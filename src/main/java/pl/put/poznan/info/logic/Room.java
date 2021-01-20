@@ -1,8 +1,6 @@
 package pl.put.poznan.info.logic;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.*;
 
 import java.lang.Float;
 
@@ -132,9 +130,8 @@ public class Room extends Location {
 
     @Override
     public JSONArray findRoomsWithLimitedAreaLevel(String level) throws JSONException {
-        float fLevel = Float.parseFloat(level);
         JSONArray ids = new JSONArray();
-        if (Float.compare(this.getArea(), fLevel) <= 0) {
+        if (this.getArea() <= Integer.parseInt(level)) {
             JSONObject id = new JSONObject();
             id.put("id",String.valueOf(this.getId()));
             ids.put(id);
@@ -157,9 +154,8 @@ public class Room extends Location {
 
     @Override
     public JSONArray findRoomsWithLimitedCubeLevel(String level) throws JSONException {
-        float fLevel = Float.parseFloat(level);
         JSONArray ids = new JSONArray();
-        if (Float.compare(this.getCube(), fLevel) <= 0) {
+        if (this.getCube() <= Integer.parseInt(level)) {
             JSONObject id = new JSONObject();
             id.put("id",String.valueOf(this.getId()));
             ids.put(id);
@@ -219,9 +215,8 @@ public class Room extends Location {
 
     @Override
     public JSONArray findRoomsWithLimitedLightLevel(String level) throws JSONException {
-        float fLevel = Float.parseFloat(level);
         JSONArray ids = new JSONArray();
-        if (Float.compare(this.getLight(), fLevel) <= 0) {
+        if (Double.compare((double)this.getLight()/this.getArea(), Double.parseDouble(level)) <= 0) {
             JSONObject id = new JSONObject();
             id.put("id",String.valueOf(this.getId()));
             ids.put(id);
